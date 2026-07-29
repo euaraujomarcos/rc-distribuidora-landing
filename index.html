@@ -18,94 +18,93 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..650;1,9..144,400..650&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================================
-       DESIGN SYSTEM — "Editorial de arquitetura"
-       Referências: catálogos de porcelanato de alto padrão e sites
-       de estúdios de arquitetura (tipografia serifada expressiva,
-       neutros de galeria, seções numeradas, hairlines, respiro).
-       Cores da marca extraídas da logo oficial RC.
+       DESIGN SYSTEM v3 — referência: branding Maes Arquitetura
+       (Behance) traduzido para a identidade RC:
+       · Tipografia geométrica (Jost ≈ Rota) em minúsculas
+       · Headlines terminadas em ponto amarelo (assinatura)
+       · Navy dominante no papel do "dark sofisticado"
+       · Areia/creme como respiro, amarelo como acento
+       · Formas em traço fino + animações de surgimento no scroll
        ============================================================ */
     :root{
-      /* Marca */
-      --navy:#03134F;            /* rgb(3,19,79) — azul da logo */
-      --blue:#043282;            /* rgb(4,50,130) — azul royal */
-      --yellow:#FCBC02;          /* rgb(252,188,2) — amarelo RC */
+      /* Marca (extraídas da logo oficial) */
+      --navy:#03134F;
+      --blue:#043282;
+      --yellow:#FCBC02;
       --yellow-dark:#DFA500;
 
-      /* Neutros arquitetônicos (plaster / stone) */
-      --paper:#F4F2EC;           /* fundo geral — branco-galeria quente */
-      --panel:#FFFFFF;
-      --panel-soft:#F8F6F1;
-      --line:#E3DED2;            /* hairlines */
-      --ink:#131A34;
-      --ink-soft:#5A5F73;
-      --ink-on-navy:#C7D1EC;
+      /* Neutros areia (papel da referência) */
+      --sand:#EFEADB;
+      --card:#F8F5EC;
+      --line:#DED7C2;
+      --line-navy:rgba(255,255,255,.13);
+
+      --ink:#10173A;
+      --ink-soft:#585E76;
+      --on-navy:#C9D2EC;
 
       --whatsapp:#1FA855;
       --whatsapp-dark:#178A45;
 
-      --r-panel:26px;
-      --r-card:16px;
-      --shadow:0 24px 60px rgba(3,19,79,.10);
-      --shadow-soft:0 10px 30px rgba(3,19,79,.06);
+      --r-panel:28px;
+      --r-card:18px;
+      --shadow:0 24px 60px rgba(3,19,79,.14);
+      --shadow-soft:0 10px 30px rgba(3,19,79,.07);
 
-      --serif:'Fraunces',Georgia,serif;
-      --sans:'Manrope',system-ui,sans-serif;
+      --font:'Jost',system-ui,sans-serif;
     }
 
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     [id]{scroll-margin-top:24px}
     body{
-      font-family:var(--sans);color:var(--ink);background:var(--paper);
-      line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip;
+      font-family:var(--font);color:var(--ink);background:var(--sand);
+      line-height:1.62;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:clip;
     }
     img{max-width:100%;display:block}
     a{color:inherit}
-    h1,h2,h3{line-height:1.12}
+    h1,h2,h3{line-height:1.12;font-weight:500}
     .hero-grid>*,.why-grid>*,.form-grid>*,.visit-grid>*{min-width:0}
+
+    /* Ponto amarelo — assinatura tipográfica (como o "maes.") */
+    .dot{color:var(--yellow)}
 
     .page{width:min(1180px,94%);margin-inline:auto;display:grid;gap:18px;padding:18px 0 26px;position:relative;z-index:1}
     .panel{
-      background:var(--panel);border-radius:var(--r-panel);
+      background:var(--card);border-radius:var(--r-panel);
       padding:clamp(26px,4.5vw,60px);box-shadow:var(--shadow-soft);
       position:relative;overflow:hidden;
     }
     .panel-navy{background:var(--navy);color:#fff}
 
-    /* ---------- Cabeçalho editorial de seção ---------- */
-    .sec-head{
-      display:flex;gap:22px;align-items:flex-start;
-      border-top:1px solid var(--line);padding-top:22px;margin-bottom:34px;
-    }
-    .panel-navy .sec-head{border-top-color:rgba(255,255,255,.14)}
-    .sec-num{
-      font-family:var(--serif);font-weight:400;font-size:1rem;color:var(--ink-soft);
-      letter-spacing:.04em;padding-top:6px;flex:none;font-variant-numeric:tabular-nums;
-    }
-    .panel-navy .sec-num{color:var(--ink-on-navy)}
+    /* ---------- Cabeçalho de seção ---------- */
+    .sec-head{margin-bottom:34px;max-width:720px}
     .micro{
-      display:block;font-weight:800;font-size:.72rem;text-transform:uppercase;
-      letter-spacing:.18em;color:var(--blue);margin-bottom:10px;
+      display:flex;align-items:center;gap:10px;
+      font-weight:500;font-size:.86rem;letter-spacing:.04em;
+      color:var(--blue);margin-bottom:12px;
     }
+    .micro::before{content:"";width:26px;height:1.5px;background:var(--yellow);flex:none}
     .panel-navy .micro{color:var(--yellow)}
     .section-title{
-      font-family:var(--serif);font-weight:520;font-size:clamp(1.7rem,3.4vw,2.6rem);
-      letter-spacing:-.01em;margin-bottom:10px;
+      font-size:clamp(1.75rem,3.6vw,2.7rem);font-weight:500;
+      letter-spacing:-.015em;margin-bottom:10px;text-transform:lowercase;
     }
-    .section-title i{font-style:italic;color:var(--blue)}
-    .panel-navy .section-title i{color:var(--yellow)}
+    .section-title em{font-style:normal;font-weight:600;color:var(--blue)}
+    .panel-navy .section-title em{color:var(--yellow)}
     .section-sub{color:var(--ink-soft);max-width:600px}
+    .panel-navy .section-sub{color:var(--on-navy)}
 
     /* ---------- Botões ---------- */
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      font-family:var(--sans);font-weight:700;font-size:.97rem;
-      padding:15px 28px;border-radius:999px;border:0;cursor:pointer;
-      text-decoration:none;text-align:center;
+      font-family:var(--font);font-weight:600;font-size:1rem;letter-spacing:.01em;
+      padding:15px 30px;border-radius:999px;border:0;cursor:pointer;
+      text-decoration:none;text-align:center;text-transform:lowercase;
       transition:transform .15s ease,box-shadow .15s ease,background .15s ease,color .15s ease,border-color .15s ease;
     }
     .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
@@ -118,106 +117,106 @@
     .btn-yellow:hover{background:var(--yellow-dark)}
     .btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
     .btn-outline:hover{border-color:var(--blue);color:var(--blue)}
-    .panel-navy .btn-outline{color:#fff;border-color:rgba(255,255,255,.3)}
+    .panel-navy .btn-outline{color:#fff;border-color:var(--line-navy)}
     .panel-navy .btn-outline:hover{border-color:var(--yellow);color:var(--yellow)}
-    .btn-sm{padding:11px 20px;font-size:.87rem}
+    .btn-sm{padding:11px 20px;font-size:.9rem}
     .wa-ico{width:19px;height:19px;flex:none}
 
-    /* ---------- Navegação ---------- */
+    /* ---------- Navegação (dentro do hero navy) ---------- */
     .hero-nav{
       display:flex;align-items:center;justify-content:space-between;gap:16px;
-      margin-bottom:clamp(30px,5vw,54px);
+      margin-bottom:clamp(34px,6vw,64px);
     }
-    .logo-chip{
-      background:var(--navy);border-radius:12px;padding:10px 16px;
-      display:inline-flex;align-items:center;flex:none;
-    }
-    .logo-chip img{height:26px;width:auto}
-    .hero-links{display:flex;gap:26px;font-weight:600;font-size:.88rem;color:var(--ink-soft)}
-    .hero-links a{text-decoration:none;letter-spacing:.01em}
-    .hero-links a:hover{color:var(--blue)}
+    .hero-nav .logo img{height:30px;width:auto}
+    .hero-links{display:flex;gap:26px;font-weight:500;font-size:.92rem;color:var(--on-navy);text-transform:lowercase}
+    .hero-links a{text-decoration:none}
+    .hero-links a:hover{color:var(--yellow)}
     .hero-nav-ctas{display:flex;gap:10px}
     @media(max-width:980px){.hero-links{display:none}}
     @media(max-width:640px){
       .hero-nav-ctas .hide-m{display:none}
-      .hero-nav-ctas .btn-navy{padding:11px 13px}
+      .hero-nav-ctas .btn-yellow{padding:11px 14px}
       .hero-nav-ctas .num{display:none}
-      .logo-chip{padding:8px 12px}
-      .logo-chip img{height:22px}
+      .hero-nav .logo img{height:24px}
     }
 
-    /* ---------- Hero ---------- */
-    .hero-grid{display:grid;gap:36px;align-items:stretch}
-    @media(min-width:920px){.hero-grid{grid-template-columns:1.04fr .96fr;gap:52px}}
-    .hero-copy{display:flex;flex-direction:column;justify-content:center}
+    /* ---------- Hero (navy dominante, como o dark da referência) ---------- */
+    .hero-grid{display:grid;gap:36px;align-items:center}
+    @media(min-width:920px){.hero-grid{grid-template-columns:1.04fr .96fr;gap:56px}}
     .hero-kicker{
-      font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;
-      color:var(--blue);margin-bottom:18px;display:flex;align-items:center;gap:12px;
+      display:flex;align-items:center;gap:10px;
+      font-weight:500;font-size:.86rem;letter-spacing:.04em;
+      color:var(--yellow);margin-bottom:16px;
     }
-    .hero-kicker::before{content:"";width:34px;height:1px;background:var(--yellow);flex:none}
+    .hero-kicker::before{content:"";width:26px;height:1.5px;background:var(--yellow);flex:none}
     .hero-copy h1{
-      font-family:var(--serif);font-weight:530;
-      font-size:clamp(2.1rem,4.8vw,3.4rem);letter-spacing:-.015em;margin-bottom:18px;
+      font-size:clamp(2.15rem,5vw,3.6rem);font-weight:500;letter-spacing:-.02em;
+      margin-bottom:18px;text-transform:lowercase;
     }
-    .hero-copy h1 em{font-style:italic;color:var(--blue);position:relative;white-space:nowrap}
-    .hero-copy h1 em::after{
-      content:"";position:absolute;left:0;right:0;bottom:4px;height:9px;
-      background:var(--yellow);opacity:.4;border-radius:3px;z-index:-1;
-    }
-    .hero-sub{color:var(--ink-soft);font-size:1.05rem;max-width:500px;margin-bottom:26px}
-    .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px}
-    .hero-checks{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--ink-soft);font-size:.85rem;margin-bottom:30px}
-    .hero-checks span::before{content:"✓ ";color:var(--whatsapp-dark);font-weight:800}
+    .hero-copy h1 em{font-style:normal;font-weight:600;color:var(--yellow)}
+    .hero-sub{color:var(--on-navy);font-size:1.08rem;font-weight:300;max-width:500px;margin-bottom:28px}
+    .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px}
+    .hero-checks{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--on-navy);font-size:.88rem;margin-bottom:34px}
+    .hero-checks span::before{content:"✓ ";color:var(--yellow);font-weight:600}
 
-    /* Números com hairlines — ritmo de portfólio de arquitetura */
-    .stats-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
-    .stat{padding:16px 18px 2px;border-left:1px solid var(--line)}
+    .stats-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-navy)}
+    .stat{padding:18px 18px 2px;border-left:1px solid var(--line-navy)}
     .stat:first-child{border-left:0;padding-left:0}
     .stat b{
-      display:block;font-family:var(--serif);font-weight:480;font-size:1.9rem;
-      color:var(--navy);line-height:1.1;letter-spacing:-.01em;
+      display:block;font-weight:500;font-size:2rem;color:#fff;
+      line-height:1.1;letter-spacing:-.01em;font-variant-numeric:tabular-nums;
     }
-    .stat b i{font-style:italic;color:var(--yellow-dark)}
-    .stat span{color:var(--ink-soft);font-size:.78rem;line-height:1.4;display:block;margin-top:2px}
+    .stat b i{font-style:normal;color:var(--yellow)}
+    .stat span{color:var(--on-navy);font-size:.8rem;font-weight:300;line-height:1.4;display:block;margin-top:2px}
     @media(max-width:560px){
       .stat{padding:12px 10px 0}
-      .stat b{font-size:1.3rem}
+      .stat b{font-size:1.35rem}
       .stat span{font-size:.68rem}
     }
 
-    .hero-photo{position:relative;min-height:300px}
+    .hero-photo{position:relative}
     .hero-photo img{
-      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-      border-radius:var(--r-card);
+      width:100%;aspect-ratio:4/4.6;object-fit:cover;border-radius:var(--r-card);
     }
+    @media(max-width:919px){.hero-photo img{aspect-ratio:16/9}}
     .hero-photo .badge{
       position:absolute;top:14px;left:14px;
       background:var(--yellow);color:var(--navy);
-      font-weight:800;font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;
+      font-weight:600;font-size:.8rem;text-transform:lowercase;letter-spacing:.02em;
       padding:9px 16px;border-radius:999px;box-shadow:var(--shadow-soft);
     }
     .hero-photo figcaption{
       position:absolute;bottom:12px;right:12px;
-      background:rgba(3,19,79,.72);color:#DBE3F5;font-size:.7rem;
+      background:rgba(3,19,79,.72);color:#DBE3F5;font-size:.72rem;
       padding:5px 12px;border-radius:999px;
     }
-    /* Mobile first: a headline (message match) é a primeira coisa visível;
-       a foto entra depois da copy, compacta */
-    @media(max-width:919px){
-      .hero-photo{min-height:0;aspect-ratio:16/9}
-      .hero-photo img{position:static;aspect-ratio:16/9}
+
+    /* ---------- Marquee (faixa amarela, eco da faixa "MATRIZ" da logo) ---------- */
+    .marquee{
+      background:var(--yellow);color:var(--navy);border-radius:var(--r-panel);
+      overflow:hidden;padding:15px 0;box-shadow:var(--shadow-soft);
     }
+    .marquee-track{
+      display:flex;width:max-content;white-space:nowrap;
+      animation:marq 26s linear infinite;
+    }
+    .marquee-track span{
+      font-weight:500;font-size:1.02rem;text-transform:lowercase;letter-spacing:.02em;
+      padding-right:12px;
+    }
+    @keyframes marq{to{transform:translateX(-50%)}}
 
     /* ---------- Por que a RC ---------- */
     .why-grid{display:grid;gap:32px}
     @media(min-width:920px){.why-grid{grid-template-columns:1fr 1fr;gap:56px}}
     .why-left p{color:var(--ink-soft);margin-bottom:22px;max-width:460px}
-    .why-mini{display:grid;gap:0;border-top:1px solid var(--line)}
+    .why-mini{display:grid;border-top:1px solid var(--line)}
     .why-mini div{
       padding:13px 4px;border-bottom:1px solid var(--line);
-      font-weight:600;font-size:.92rem;display:flex;gap:12px;align-items:center;
+      font-weight:500;font-size:.95rem;display:flex;gap:12px;align-items:center;
+      text-transform:lowercase;
     }
-    .why-mini div::before{content:"✓";color:var(--whatsapp-dark);font-weight:800}
+    .why-mini div::before{content:"✓";color:var(--whatsapp-dark);font-weight:600}
     .why-cards{display:grid;gap:14px;align-content:center}
     .why-card{
       background:var(--navy);color:#fff;border-radius:var(--r-card);
@@ -226,18 +225,18 @@
     }
     .why-card:hover{transform:translateY(-3px)}
     .why-card img{width:64px;height:64px;border-radius:12px;object-fit:cover;flex:none}
-    .why-card h3{font-size:1rem;font-weight:700;margin-bottom:3px}
-    .why-card h3 i{font-style:italic;font-family:var(--serif);font-weight:480;color:var(--yellow)}
-    .why-card p{color:var(--ink-on-navy);font-size:.85rem;line-height:1.45}
+    .why-card h3{font-size:1.05rem;font-weight:500;margin-bottom:3px;text-transform:lowercase}
+    .why-card h3 i{font-style:normal;font-weight:600;color:var(--yellow)}
+    .why-card p{color:var(--on-navy);font-size:.86rem;font-weight:300;line-height:1.45}
 
-    /* ---------- Produtos (cards editoriais) ---------- */
+    /* ---------- Produtos ---------- */
     .products-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
     .products-head .btn{margin-bottom:34px}
     .cards{display:grid;gap:18px}
     @media(min-width:680px){.cards{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:1000px){.cards{grid-template-columns:repeat(3,1fr)}}
     .card{
-      border-radius:var(--r-card);overflow:hidden;background:var(--panel-soft);
+      border-radius:var(--r-card);overflow:hidden;background:#fff;
       border:1px solid var(--line);
       transition:transform .18s ease,box-shadow .18s ease;
       display:flex;flex-direction:column;
@@ -245,27 +244,27 @@
     .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
     .card-media{aspect-ratio:4/3;overflow:hidden}
     .card-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-    .card:hover .card-media img{transform:scale(1.045)}
+    .card:hover .card-media img{transform:scale(1.05)}
     .card-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
     .card-index{
-      font-family:var(--serif);font-size:.82rem;color:var(--ink-soft);
+      font-size:.78rem;font-weight:500;color:var(--ink-soft);letter-spacing:.06em;
       display:flex;align-items:center;gap:10px;
     }
     .card-index::after{content:"";height:1px;background:var(--line);flex:1}
-    .card-body h3{font-family:var(--serif);font-weight:540;font-size:1.22rem;letter-spacing:-.01em}
-    .card-body p{color:var(--ink-soft);font-size:.88rem;flex:1}
+    .card-body h3{font-size:1.25rem;font-weight:500;letter-spacing:-.01em;text-transform:lowercase}
+    .card-body p{color:var(--ink-soft);font-size:.9rem;flex:1}
     .card-body a{
-      color:var(--blue);font-weight:700;font-size:.88rem;text-decoration:none;margin-top:6px;
-      display:inline-block;padding:4px 0;
+      color:var(--blue);font-weight:600;font-size:.9rem;text-decoration:none;margin-top:6px;
+      display:inline-block;padding:4px 0;text-transform:lowercase;
     }
     .card-body a:hover{text-decoration:underline}
     .card-full{
       background:var(--navy);color:#fff;border-color:var(--navy);
       justify-content:center;align-items:flex-start;gap:12px;padding:30px;
     }
-    .card-full h3{font-family:var(--serif);font-weight:520;font-size:1.5rem}
-    .card-full h3 i{font-style:italic;color:var(--yellow)}
-    .card-full p{color:var(--ink-on-navy);font-size:.9rem}
+    .card-full h3{font-size:1.55rem;font-weight:500;text-transform:lowercase}
+    .card-full h3 i{font-style:normal;font-weight:600;color:var(--yellow)}
+    .card-full p{color:var(--on-navy);font-size:.92rem;font-weight:300}
     @media(max-width:679px){
       .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;
         margin-inline:-6px;padding:6px 6px 14px}
@@ -276,53 +275,52 @@
     /* ---------- Marcas ---------- */
     .brand-grid{display:grid;gap:16px}
     @media(min-width:880px){.brand-grid{grid-template-columns:repeat(2,1fr)}}
-    .brand-card{border-radius:var(--r-card);padding:26px;background:var(--panel-soft);border:1px solid var(--line)}
+    .brand-card{border-radius:var(--r-card);padding:26px;background:#fff;border:1px solid var(--line)}
     .brand-card.navy{background:var(--navy);color:#fff;border-color:var(--navy)}
     .brand-card h3{
-      font-size:.74rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em;
+      font-size:.86rem;font-weight:600;text-transform:lowercase;letter-spacing:.05em;
       margin-bottom:16px;color:var(--blue);display:flex;align-items:center;gap:10px;
     }
     .brand-card.navy h3{color:var(--yellow)}
     .brand-card h3::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow)}
     .brand-list{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
     .brand-list li{
-      font-weight:700;font-size:.88rem;color:var(--navy);
-      background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 15px;
+      font-weight:500;font-size:.9rem;color:var(--navy);
+      background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px;
     }
     .brand-card.navy .brand-list li{background:rgba(255,255,255,.1);color:#fff;border-color:transparent}
-    .brand-card.navy p{color:var(--ink-on-navy);font-size:.92rem;margin-bottom:16px}
+    .brand-card.navy p{color:var(--on-navy);font-size:.94rem;font-weight:300;margin-bottom:16px}
 
     /* ---------- Como funciona ---------- */
-    .steps-grid{display:grid;gap:0}
-    @media(min-width:820px){.steps-grid{grid-template-columns:repeat(3,1fr)}}
+    .steps-grid{display:grid}
+    @media(min-width:820px){.steps-grid{grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}}
     .step{border-top:1px solid var(--line);padding:22px 26px 6px 0}
     @media(min-width:820px){
-      .steps-grid{border-top:1px solid var(--line)}
       .step{border-top:0;border-left:1px solid var(--line);padding:22px 26px 6px 22px}
       .step:first-child{border-left:0;padding-left:0}
     }
     .step-num{
-      font-family:var(--serif);font-style:italic;font-weight:450;
-      font-size:2.2rem;color:var(--yellow-dark);line-height:1;margin-bottom:12px;display:block;
+      font-weight:300;font-size:2.3rem;color:var(--yellow-dark);
+      line-height:1;margin-bottom:12px;display:block;font-variant-numeric:tabular-nums;
     }
-    .step h3{font-family:var(--serif);font-weight:540;font-size:1.15rem;margin-bottom:6px}
-    .step p{color:var(--ink-soft);font-size:.92rem}
+    .step h3{font-size:1.18rem;font-weight:500;margin-bottom:6px;text-transform:lowercase}
+    .step p{color:var(--ink-soft);font-size:.94rem}
 
     /* ---------- Depoimentos ---------- */
     .quotes{display:grid;gap:14px}
     @media(min-width:900px){.quotes{grid-template-columns:repeat(3,1fr)}}
     .quote{
-      background:var(--panel-soft);border:1px solid var(--line);border-radius:var(--r-card);
-      padding:26px 24px;display:flex;flex-direction:column;gap:12px;position:relative;
+      background:#fff;border:1px solid var(--line);border-radius:var(--r-card);
+      padding:26px 24px;display:flex;flex-direction:column;gap:12px;
     }
     .quote::before{
-      content:"“";font-family:var(--serif);font-size:3.4rem;line-height:.6;
-      color:var(--yellow);display:block;margin-top:8px;
+      content:"“";font-size:3.6rem;line-height:.55;font-weight:500;
+      color:var(--yellow);display:block;margin-top:10px;
     }
     .stars{color:var(--yellow-dark);letter-spacing:2px;font-size:.95rem}
-    .quote p{color:var(--ink-soft);font-size:.92rem;flex:1;font-style:normal}
-    .quote footer b{display:block;font-size:.93rem}
-    .quote footer span{color:var(--ink-soft);font-size:.78rem}
+    .quote p{color:var(--ink-soft);font-size:.93rem;flex:1}
+    .quote footer b{display:block;font-size:.95rem;font-weight:600}
+    .quote footer span{color:var(--ink-soft);font-size:.8rem}
     .quotes-cta{margin-top:26px;display:flex;justify-content:center}
     @media(max-width:600px){
       .quotes{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;
@@ -335,55 +333,56 @@
     .form-grid{display:grid;gap:36px;align-items:center}
     @media(min-width:920px){.form-grid{grid-template-columns:1fr 1fr;gap:60px}}
     .form-copy h2{
-      font-family:var(--serif);font-weight:520;
-      font-size:clamp(1.7rem,3.3vw,2.5rem);letter-spacing:-.01em;margin-bottom:14px;
+      font-size:clamp(1.75rem,3.5vw,2.6rem);font-weight:500;letter-spacing:-.015em;
+      margin-bottom:14px;text-transform:lowercase;
     }
-    .form-copy h2 i{font-style:italic;color:var(--yellow)}
-    .form-copy>p{color:var(--ink-on-navy);max-width:440px;margin-bottom:22px}
+    .form-copy h2 i{font-style:normal;font-weight:600;color:var(--yellow)}
+    .form-copy>p{color:var(--on-navy);font-weight:300;max-width:440px;margin-bottom:22px}
     .form-card{
-      background:#fff;color:var(--ink);border-radius:var(--r-card);
+      background:var(--card);color:var(--ink);border-radius:var(--r-card);
       padding:28px;box-shadow:var(--shadow);
     }
     .form-badge{
-      display:inline-block;background:rgba(252,188,2,.16);color:#8A6700;
-      font-size:.74rem;font-weight:800;padding:5px 12px;border-radius:999px;margin-bottom:12px;
+      display:inline-block;background:rgba(252,188,2,.18);color:#8A6700;
+      font-size:.78rem;font-weight:600;padding:5px 12px;border-radius:999px;margin-bottom:12px;
+      text-transform:lowercase;
     }
     .promo-bar{
-      background:var(--yellow);color:var(--navy);font-size:.85rem;font-weight:700;
+      background:var(--yellow);color:var(--navy);font-size:.88rem;font-weight:600;
       padding:10px 14px;border-radius:10px;margin-bottom:14px;
     }
-    .form-card h3{font-family:var(--serif);font-weight:540;font-size:1.35rem;margin-bottom:4px}
-    .form-card>p{color:var(--ink-soft);font-size:.88rem;margin-bottom:18px}
+    .form-card h3{font-size:1.4rem;font-weight:500;margin-bottom:4px;text-transform:lowercase}
+    .form-card>p{color:var(--ink-soft);font-size:.9rem;margin-bottom:18px}
     .field{margin-bottom:13px}
-    .field label{display:block;font-weight:700;font-size:.85rem;margin-bottom:6px}
+    .field label{display:block;font-weight:500;font-size:.88rem;margin-bottom:6px}
     .field input,.field select,.field textarea{
       width:100%;padding:13px 16px;border:1.5px solid var(--line);border-radius:12px;
-      font-family:var(--sans);font-size:1rem;background:var(--panel-soft);color:var(--ink);
+      font-family:var(--font);font-size:1rem;background:#fff;color:var(--ink);
     }
     .field input:focus,.field select:focus,.field textarea:focus{
-      outline:none;border-color:var(--blue);background:#fff;
+      outline:none;border-color:var(--blue);
     }
     .field textarea{resize:vertical;min-height:76px}
-    .form-note{font-size:.78rem;color:var(--ink-soft);text-align:center;margin-top:12px}
+    .form-note{font-size:.8rem;color:var(--ink-soft);text-align:center;margin-top:12px}
     .form-card .btn{width:100%}
 
     /* ---------- Visite nossa loja ---------- */
     .visit-grid{display:grid;gap:30px}
     @media(min-width:920px){.visit-grid{grid-template-columns:.9fr 1.1fr}}
-    .visit-list{list-style:none;display:grid;gap:0;border-top:1px solid var(--line)}
+    .visit-list{list-style:none;display:grid;border-top:1px solid var(--line)}
     .visit-list li{
       display:flex;gap:14px;align-items:flex-start;
       border-bottom:1px solid var(--line);padding:15px 4px;
     }
     .visit-list .ico{font-size:1.1rem;flex:none;margin-top:2px}
-    .visit-list b{display:block;font-size:.9rem}
+    .visit-list b{display:block;font-size:.92rem;font-weight:600}
     .visit-list li>div{min-width:0;flex:1}
-    .visit-list a{color:var(--blue);text-decoration:none;font-weight:600;font-size:.93rem;overflow-wrap:anywhere}
+    .visit-list a{color:var(--blue);text-decoration:none;font-weight:500;font-size:.95rem;overflow-wrap:anywhere}
     .visit-list a:hover{text-decoration:underline}
-    .visit-list p{color:var(--ink-soft);font-size:.92rem}
+    .visit-list p{color:var(--ink-soft);font-size:.94rem}
     .visit-hours{
-      margin-top:16px;background:rgba(252,188,2,.12);border:1px solid rgba(223,165,0,.35);
-      border-radius:var(--r-card);padding:16px 18px;font-size:.9rem;color:#5C4A05;
+      margin-top:16px;background:rgba(252,188,2,.14);border:1px solid rgba(223,165,0,.4);
+      border-radius:var(--r-card);padding:16px 18px;font-size:.92rem;color:#5C4A05;
     }
     .map-frame{border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-soft);min-height:320px}
     .map-frame iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
@@ -391,39 +390,39 @@
     /* ---------- Footer ---------- */
     .footer-panel{
       display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;
-      color:var(--ink-on-navy);font-size:.85rem;
+      color:var(--on-navy);font-size:.88rem;font-weight:300;
     }
-    .footer-panel a{color:var(--yellow);font-weight:600}
+    .footer-panel a{color:var(--yellow);font-weight:500;text-transform:lowercase}
 
-    /* ---------- Barra fixa mobile (CTA sempre visível) ---------- */
+    /* ---------- Barra fixa mobile ---------- */
     .sticky-wa{
       position:fixed;left:0;right:0;bottom:0;z-index:60;
       padding:10px 14px calc(10px + env(safe-area-inset-bottom));
-      background:rgba(244,242,236,.9);backdrop-filter:blur(10px);
+      background:rgba(239,234,219,.9);backdrop-filter:blur(10px);
       border-top:1px solid var(--line);
     }
     .sticky-wa .btn{width:100%;padding:14px;min-height:54px}
     @media(min-width:760px){.sticky-wa{display:none}}
     @media(max-width:759px){body{padding-bottom:78px}}
 
-    /* ---------- Ajustes finos mobile ---------- */
+    /* ---------- Ajustes finos mobile (mobile first) ---------- */
     @media(max-width:560px){
       .page{width:94%;gap:14px;padding-top:14px}
-      .panel{border-radius:20px}
-      .hero-copy h1{font-size:1.9rem}
+      .panel{border-radius:22px}
+      .hero-copy h1{font-size:2rem}
       .hero-ctas{flex-direction:column;align-items:stretch}
       .hero-ctas .btn{width:100%;min-height:54px}
-      .hero-kicker{font-size:.62rem;letter-spacing:.13em;white-space:nowrap}
-      .micro{font-size:.64rem;letter-spacing:.14em}
-      .sec-head{gap:14px;margin-bottom:26px}
-      .section-title{font-size:1.55rem}
+      .hero-kicker{font-size:.78rem;white-space:nowrap}
+      .section-title{font-size:1.6rem}
       .why-card img{width:54px;height:54px}
       .map-frame,.map-frame iframe{min-height:260px}
       .form-badge{display:block;width:fit-content;margin-inline:auto}
-      .products-head .btn{display:none} /* um CTA dominante por tela no mobile */
+      .products-head .btn{display:none} /* um CTA dominante por tela */
+      .marquee{padding:12px 0}
+      .marquee-track span{font-size:.9rem}
     }
 
-    /* ---------- Casa (blueprint) que se constrói com o scroll ---------- */
+    /* ---------- Casa (traço fino) que se constrói com o scroll ---------- */
     .house-bg{
       position:fixed;inset:0;z-index:0;pointer-events:none;
       display:flex;align-items:center;justify-content:flex-end;
@@ -431,22 +430,47 @@
     }
     .house-bg svg{width:min(440px,66vw);height:auto;opacity:.5}
     .house-bg path{
-      fill:none;stroke:#CFC8B8;stroke-width:2.25;
+      fill:none;stroke:#CBC2A4;stroke-width:2.25;
       stroke-linecap:round;stroke-linejoin:round;
     }
-    .house-bg .h-yellow{stroke:#E4CB7E}
+    .house-bg .h-yellow{stroke:#E2C766}
     @media(max-width:760px){
       .house-bg{justify-content:flex-end;align-items:flex-end;padding:0 2vw 15vh 0}
       .house-bg svg{width:52vw;opacity:.4}
     }
 
-    /* ---------- Reveal on scroll ---------- */
-    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+    /* ============================================================
+       ANIMAÇÕES DE SURGIMENTO NO SCROLL
+       · .reveal        — painel sobe e aparece
+       · .stagger       — filhos surgem em cascata
+       · .img-reveal    — foto "abre" de cima para baixo (clip-path)
+       · [data-count]   — número conta até o valor ao entrar na tela
+       ============================================================ */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
     .reveal.on{opacity:1;transform:none}
 
+    .stagger>*{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+    .stagger.on>*{opacity:1;transform:none}
+    .stagger.on>*:nth-child(1){transition-delay:.06s}
+    .stagger.on>*:nth-child(2){transition-delay:.14s}
+    .stagger.on>*:nth-child(3){transition-delay:.22s}
+    .stagger.on>*:nth-child(4){transition-delay:.30s}
+    .stagger.on>*:nth-child(5){transition-delay:.38s}
+    .stagger.on>*:nth-child(6){transition-delay:.46s}
+    .stagger.on>*:nth-child(7){transition-delay:.54s}
+    .stagger.on>*:nth-child(8){transition-delay:.62s}
+    .stagger.on>*:nth-child(9){transition-delay:.70s}
+    .stagger.on>*:nth-child(10){transition-delay:.78s}
+    .stagger.on>*:nth-child(11){transition-delay:.86s}
+    .stagger.on>*:nth-child(12){transition-delay:.94s}
+
+    .img-reveal{clip-path:inset(0 0 100% 0);transition:clip-path .9s cubic-bezier(.65,0,.35,1)}
+    .img-reveal.on{clip-path:inset(0 0 0 0)}
+
     @media(prefers-reduced-motion:reduce){
-      *{transition:none!important;scroll-behavior:auto}
-      .reveal{opacity:1;transform:none}
+      *{transition:none!important;animation:none!important;scroll-behavior:auto}
+      .reveal,.stagger>*{opacity:1;transform:none}
+      .img-reveal{clip-path:none}
     }
   </style>
 </head>
@@ -488,19 +512,19 @@
 
   <div class="page">
 
-    <!-- ================= HERO ================= -->
-    <section class="panel">
+    <!-- ================= HERO (navy) ================= -->
+    <section class="panel panel-navy">
       <nav class="hero-nav">
-        <span class="logo-chip"><img src="assets/logo-topo.png" alt="RC Distribuidora de Pisos e Porcelanatos"></span>
+        <a href="#" class="logo"><img src="assets/logo-topo.png" alt="RC Distribuidora de Pisos e Porcelanatos"></a>
         <div class="hero-links">
-          <a href="#produtos">Produtos</a>
-          <a href="#marcas">Marcas</a>
-          <a href="#depoimentos">Depoimentos</a>
-          <a href="#loja">Nossa loja</a>
+          <a href="#produtos">produtos</a>
+          <a href="#marcas">marcas</a>
+          <a href="#depoimentos">depoimentos</a>
+          <a href="#loja">nossa loja</a>
         </div>
         <div class="hero-nav-ctas">
-          <a href="#orcamento" class="btn btn-outline btn-sm hide-m">Pedir orçamento</a>
-          <a href="#" class="btn btn-navy btn-sm js-wa">
+          <a href="#orcamento" class="btn btn-outline btn-sm hide-m">pedir orçamento</a>
+          <a href="#" class="btn btn-yellow btn-sm js-wa">
             <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .8-.1 1.2Z"/></svg>
             <span class="num">(34) 99887-1579</span>
           </a>
@@ -509,146 +533,148 @@
 
       <div class="hero-grid">
         <div class="hero-copy">
-          <span class="hero-kicker">Distribuidora de pisos · Uberlândia-MG</span>
-          <h1 id="headline">O piso que você procura está aqui — com <em>preço de distribuidora</em></h1>
+          <span class="hero-kicker">distribuidora de pisos · uberlândia-mg</span>
+          <h1 id="headline">o piso que você procura está aqui — com <em>preço de distribuidora</em><span class="dot">.</span></h1>
           <p class="hero-sub">Villagres, Majopar, Helena, Delta, Incefra e outras marcas líderes, com atendimento de gente que entende de piso. Do orçamento à entrega, a gente cuida da sua obra ou reforma.</p>
           <div class="hero-ctas">
             <a href="#" class="btn btn-whatsapp js-wa">
               <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .8-.1 1.2Z"/></svg>
-              Chamar no WhatsApp
+              chamar no whatsapp
             </a>
-            <a href="#orcamento" class="btn btn-yellow">Receber orçamento no meu Whats</a>
+            <a href="#orcamento" class="btn btn-yellow">receber orçamento no meu whats</a>
           </div>
           <div class="hero-checks">
-            <span>Orçamento sem compromisso</span>
-            <span>Pronta entrega na região</span>
+            <span>orçamento sem compromisso</span>
+            <span>pronta entrega na região</span>
           </div>
-          <div class="stats-row">
-            <div class="stat"><b>20<i>+</i></b><span>anos de história em Uberlândia</span></div>
-            <div class="stat"><b>15<i>+</i></b><span>marcas líderes de mercado</span></div>
-            <div class="stat"><b>Milhares</b><span>de obras atendidas na região</span></div>
+          <div class="stats-row stagger">
+            <div class="stat"><b><span data-count="20">0</span><i>+</i></b><span>anos de história em Uberlândia</span></div>
+            <div class="stat"><b><span data-count="15">0</span><i>+</i></b><span>marcas líderes de mercado</span></div>
+            <div class="stat"><b>milhares</b><span>de obras atendidas na região</span></div>
           </div>
         </div>
         <figure class="hero-photo">
-          <img src="assets/villagres-1.webp" alt="Ambiente amplo com porcelanato de grande formato Villagres" fetchpriority="high">
-          <span class="badge">Preço de distribuidora</span>
-          <figcaption>Porcelanato Villagres · ambiente do catálogo</figcaption>
+          <img class="img-reveal on" src="assets/villagres-1.webp" alt="Ambiente amplo com porcelanato de grande formato Villagres" fetchpriority="high">
+          <span class="badge">preço de distribuidora</span>
+          <figcaption>porcelanato villagres · ambiente do catálogo</figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- ================= 01 · POR QUE A RC ================= -->
+    <!-- ================= MARQUEE ================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>porcelanatos · pisos cerâmicos · linha amadeirada · área externa · louças · metais · pronta entrega · uberlândia e região&nbsp;·&nbsp;</span>
+        <span>porcelanatos · pisos cerâmicos · linha amadeirada · área externa · louças · metais · pronta entrega · uberlândia e região&nbsp;·&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- ================= POR QUE A RC ================= -->
     <section class="panel reveal" id="porque">
       <div class="sec-head">
-        <span class="sec-num">01</span>
-        <div>
-          <span class="micro">Por que a RC</span>
-          <h2 class="section-title">Preço de distribuidora, atendimento de <i>loja de bairro</i></h2>
-        </div>
+        <span class="micro">por que a rc</span>
+        <h2 class="section-title">preço de distribuidora, atendimento de <em>loja de bairro</em><span class="dot">.</span></h2>
       </div>
       <div class="why-grid">
         <div class="why-left">
           <p>Compramos em volume direto das fábricas e repassamos a economia para você — sem abrir mão do atendimento próximo, que ajuda na escolha certa para cada ambiente.</p>
-          <div class="why-mini">
-            <div>Marcas líderes reconhecidas pela qualidade</div>
-            <div>Atendimento personalizado do início ao fim</div>
-            <div>Parcelamento e condições para grandes volumes</div>
+          <div class="why-mini stagger">
+            <div>marcas líderes reconhecidas pela qualidade</div>
+            <div>atendimento personalizado do início ao fim</div>
+            <div>parcelamento e condições para grandes volumes</div>
           </div>
         </div>
-        <div class="why-cards">
+        <div class="why-cards stagger">
           <div class="why-card">
             <img src="assets/villagres-1.webp" alt="">
-            <div><h3>Preço direto de <i>distribuidora</i></h3><p>Compra em volume das fábricas, economia repassada pra você.</p></div>
+            <div><h3>preço direto de <i>distribuidora</i></h3><p>Compra em volume das fábricas, economia repassada pra você.</p></div>
           </div>
           <div class="why-card">
             <img src="assets/helena-banho.jpg" alt="">
-            <div><h3>Orientação <i>técnica</i></h3><p>Cálculo de metragem e escolha do piso certo para cada ambiente.</p></div>
+            <div><h3>orientação <i>técnica</i></h3><p>Cálculo de metragem e escolha do piso certo para cada ambiente.</p></div>
           </div>
           <div class="why-card">
             <img src="assets/helena-coliseu.jpg" alt="">
-            <div><h3>Entrega em Uberlândia <i>e região</i></h3><p>Logística própria para sua obra não parar por falta de material.</p></div>
+            <div><h3>entrega em uberlândia <i>e região</i></h3><p>Logística própria para sua obra não parar por falta de material.</p></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= 02 · PRODUTOS ================= -->
+    <!-- ================= PRODUTOS ================= -->
     <section class="panel reveal" id="produtos">
-      <div class="sec-head">
-        <span class="sec-num">02</span>
-        <div>
-          <span class="micro">Nossos produtos</span>
-          <h2 class="section-title">Tudo para o piso da sua <i>obra ou reforma</i></h2>
+      <div class="products-head">
+        <div class="sec-head" style="margin-bottom:20px">
+          <span class="micro">nossos produtos</span>
+          <h2 class="section-title">tudo para o piso da sua <em>obra ou reforma</em><span class="dot">.</span></h2>
           <p class="section-sub">Variedade em tamanhos, acabamentos e faixas de preço — sempre com orientação técnica para você comprar a metragem certa.</p>
         </div>
+        <a href="#" class="btn btn-navy js-wa">ver preços no whatsapp</a>
       </div>
-      <div class="cards">
+      <div class="cards stagger">
         <article class="card">
-          <div class="card-media"><img src="assets/villagres-2.webp" alt="Bancada e ambiente com porcelanato Villagres" loading="lazy"></div>
+          <div class="card-media"><img class="img-reveal" src="assets/villagres-2.webp" alt="Bancada e ambiente com porcelanato Villagres" loading="lazy"></div>
           <div class="card-body">
-            <span class="card-index">P.01</span>
-            <h3>Porcelanatos</h3>
+            <span class="card-index">p.01</span>
+            <h3>porcelanatos</h3>
             <p>Polidos, acetinados e naturais, incluindo grandes placas.</p>
-            <a href="#" class="js-wa" data-produto="Porcelanato">Ver preços no WhatsApp →</a>
+            <a href="#" class="js-wa" data-produto="Porcelanato">ver preços no whatsapp →</a>
           </div>
         </article>
         <article class="card">
-          <div class="card-media"><img src="assets/majopar-imperialle.jpg" alt="Varanda com piso cerâmico Majopar" style="object-position:center 70%" loading="lazy"></div>
+          <div class="card-media"><img class="img-reveal" src="assets/majopar-imperialle.jpg" alt="Varanda com piso cerâmico Majopar" style="object-position:center 70%" loading="lazy"></div>
           <div class="card-body">
-            <span class="card-index">P.02</span>
-            <h3>Pisos cerâmicos</h3>
+            <span class="card-index">p.02</span>
+            <h3>pisos cerâmicos</h3>
             <p>Ótimo custo-benefício para todos os ambientes, com pronta entrega.</p>
-            <a href="#" class="js-wa" data-produto="Piso cerâmico">Ver preços no WhatsApp →</a>
+            <a href="#" class="js-wa" data-produto="Piso cerâmico">ver preços no whatsapp →</a>
           </div>
         </article>
         <article class="card">
-          <div class="card-media"><img src="assets/helena-banho.jpg" alt="Banheiro com revestimento de parede Helena" loading="lazy"></div>
+          <div class="card-media"><img class="img-reveal" src="assets/helena-banho.jpg" alt="Banheiro com revestimento de parede Helena" loading="lazy"></div>
           <div class="card-body">
-            <span class="card-index">P.03</span>
-            <h3>Revestimentos de parede</h3>
+            <span class="card-index">p.03</span>
+            <h3>revestimentos de parede</h3>
             <p>Opções decorativas para cozinhas, banheiros e fachadas.</p>
-            <a href="#" class="js-wa" data-produto="Revestimento de parede">Ver preços no WhatsApp →</a>
+            <a href="#" class="js-wa" data-produto="Revestimento de parede">ver preços no whatsapp →</a>
           </div>
         </article>
         <article class="card">
-          <div class="card-media"><img src="assets/helena-coliseu.jpg" alt="Área externa com piso antiderrapante" style="object-position:center 60%" loading="lazy"></div>
+          <div class="card-media"><img class="img-reveal" src="assets/helena-coliseu.jpg" alt="Área externa com piso antiderrapante" style="object-position:center 60%" loading="lazy"></div>
           <div class="card-body">
-            <span class="card-index">P.04</span>
-            <h3>Pisos para área externa</h3>
+            <span class="card-index">p.04</span>
+            <h3>pisos para área externa</h3>
             <p>Antiderrapantes e resistentes para garagens, quintais e lazer.</p>
-            <a href="#" class="js-wa" data-produto="Piso para área externa">Ver preços no WhatsApp →</a>
+            <a href="#" class="js-wa" data-produto="Piso para área externa">ver preços no whatsapp →</a>
           </div>
         </article>
         <article class="card">
-          <div class="card-media"><img src="assets/helena-teca.jpg" alt="Ambiente com porcelanato amadeirado Helena Teca" style="object-position:center 75%" loading="lazy"></div>
+          <div class="card-media"><img class="img-reveal" src="assets/helena-teca.jpg" alt="Ambiente com porcelanato amadeirado Helena Teca" style="object-position:center 75%" loading="lazy"></div>
           <div class="card-body">
-            <span class="card-index">P.05</span>
-            <h3>Linha amadeirada</h3>
+            <span class="card-index">p.05</span>
+            <h3>linha amadeirada</h3>
             <p>O aconchego da madeira com a durabilidade do porcelanato.</p>
-            <a href="#" class="js-wa" data-produto="Porcelanato amadeirado">Ver preços no WhatsApp →</a>
+            <a href="#" class="js-wa" data-produto="Porcelanato amadeirado">ver preços no whatsapp →</a>
           </div>
         </article>
         <article class="card card-full">
-          <h3>Obra completa? <i>Preço especial.</i></h3>
+          <h3>obra completa? <i>preço especial.</i></h3>
           <p>Condições diferenciadas para construtores e compras em grande volume.</p>
-          <a href="#" class="btn btn-yellow js-wa" data-produto="Materiais para obra completa">Falar com especialista</a>
+          <a href="#" class="btn btn-yellow js-wa" data-produto="Materiais para obra completa">falar com especialista</a>
         </article>
       </div>
     </section>
 
-    <!-- ================= 03 · MARCAS ================= -->
+    <!-- ================= MARCAS ================= -->
     <section class="panel reveal" id="marcas">
       <div class="sec-head">
-        <span class="sec-num">03</span>
-        <div>
-          <span class="micro">Marcas parceiras</span>
-          <h2 class="section-title">Trabalhamos com quem é <i>referência</i></h2>
-          <p class="section-sub">Do piso à torneira, você encontra as marcas que os profissionais confiam — tudo em um só lugar.</p>
-        </div>
+        <span class="micro">marcas parceiras</span>
+        <h2 class="section-title">trabalhamos com quem é <em>referência</em><span class="dot">.</span></h2>
+        <p class="section-sub">Do piso à torneira, você encontra as marcas que os profissionais confiam — tudo em um só lugar.</p>
       </div>
-      <div class="brand-grid">
+      <div class="brand-grid stagger">
         <div class="brand-card">
-          <h3>Pisos e porcelanatos</h3>
+          <h3>pisos e porcelanatos</h3>
           <ul class="brand-list">
             <li>Majopar</li><li>Villagres</li><li>Helena</li><li>Delta</li>
             <li>Incefra</li><li>InOut</li><li>Duragres</li><li>Viva</li>
@@ -656,64 +682,58 @@
           </ul>
         </div>
         <div class="brand-card navy">
-          <h3>Louças</h3>
+          <h3>louças</h3>
           <ul class="brand-list">
             <li>Celite</li><li>Roca</li>
           </ul>
         </div>
         <div class="brand-card">
-          <h3>Metais</h3>
+          <h3>metais</h3>
           <ul class="brand-list">
             <li>Gold Flex</li><li>Celite</li><li>Incepa</li><li>Fani</li>
           </ul>
         </div>
         <div class="brand-card navy">
-          <h3>Condições facilitadas</h3>
+          <h3>condições facilitadas</h3>
           <p>Parcelamento e condições especiais para grandes volumes. Conte pra gente o tamanho da sua obra.</p>
-          <a href="#" class="btn btn-yellow btn-sm js-wa">Consultar condições no Whats</a>
+          <a href="#" class="btn btn-yellow btn-sm js-wa">consultar condições no whats</a>
         </div>
       </div>
     </section>
 
-    <!-- ================= 04 · COMO FUNCIONA ================= -->
+    <!-- ================= COMO FUNCIONA ================= -->
     <section class="panel reveal">
       <div class="sec-head">
-        <span class="sec-num">04</span>
-        <div>
-          <span class="micro">Como funciona</span>
-          <h2 class="section-title">Três passos até o seu <i>piso novo</i></h2>
-        </div>
+        <span class="micro">como funciona</span>
+        <h2 class="section-title">três passos até o seu <em>piso novo</em><span class="dot">.</span></h2>
       </div>
-      <div class="steps-grid">
+      <div class="steps-grid stagger">
         <div class="step">
-          <span class="step-num">01.</span>
-          <h3>Chame no WhatsApp</h3>
+          <span class="step-num">01</span>
+          <h3>chame no whatsapp</h3>
           <p>Mande a metragem e o tipo de ambiente — ou preencha o formulário que a gente te chama.</p>
         </div>
         <div class="step">
-          <span class="step-num">02.</span>
-          <h3>Receba orçamento e orientação</h3>
+          <span class="step-num">02</span>
+          <h3>receba orçamento e orientação</h3>
           <p>Um especialista calcula a metragem certa e monta as melhores condições pra você.</p>
         </div>
         <div class="step">
-          <span class="step-num">03.</span>
-          <h3>Receba na sua obra</h3>
+          <span class="step-num">03</span>
+          <h3>receba na sua obra</h3>
           <p>Pronta entrega em Uberlândia e região — ou retire direto na loja, como preferir.</p>
         </div>
       </div>
     </section>
 
-    <!-- ================= 05 · DEPOIMENTOS ================= -->
+    <!-- ================= DEPOIMENTOS ================= -->
     <section class="panel reveal" id="depoimentos">
       <div class="sec-head">
-        <span class="sec-num">05</span>
-        <div>
-          <span class="micro">Quem comprou, recomenda</span>
-          <h2 class="section-title">O que dizem nossos <i>clientes</i></h2>
-        </div>
+        <span class="micro">quem comprou, recomenda</span>
+        <h2 class="section-title">o que dizem nossos <em>clientes</em><span class="dot">.</span></h2>
       </div>
       <!-- Avaliações reais publicadas no Google (perfil da empresa) -->
-      <div class="quotes">
+      <div class="quotes stagger">
         <article class="quote">
           <div class="stars" aria-label="5 estrelas">★★★★★</div>
           <p>"Uma experiência maravilhosa! Muito bem atendido, desde o primeiro contato via telefone. E presencialmente uma aula de cortesia, empatia e empenho (…) Loja linda, um verdadeiro show que nos remete a obra pronta! Simplesmente incomparável o Atendimento!"</p>
@@ -731,26 +751,26 @@
         </article>
       </div>
       <div class="quotes-cta">
-        <a class="btn btn-outline" href="https://www.google.com/search?q=rc+distribuidora+de+pisos#sv=CAESzQEKuQEStgEKd0FKaVQ0dExXWnN5TmtXbFFwWDI1VDFxV2d4OUNtb3VQWGJSN1NuYk1OODRobVp4Sm5kRnRHNjRzeS1wNDZwUG1sck9ZUkwxMVFJU3dySjZrRjQwaGJ4b2wtbUt1cVpCUGlSTXN3WmVSN1BYVUdyc1ZvdXJtdVUwEhdTbkpmYXVxTUJZX1o1T1VQOUpDRTRBcxoiQURzcjlmU2IyMnRiNXJ3SGtwdk9zVmdjNmM0SWo5ZnlsQRIEODA1MRoBMyoAMAA4AUAAGAAgzLn35AZKAhAB" target="_blank" rel="noopener">Ver todas as avaliações no Google</a>
+        <a class="btn btn-outline" href="https://www.google.com/search?q=rc+distribuidora+de+pisos#sv=CAESzQEKuQEStgEKd0FKaVQ0dExXWnN5TmtXbFFwWDI1VDFxV2d4OUNtb3VQWGJSN1NuYk1OODRobVp4Sm5kRnRHNjRzeS1wNDZwUG1sck9ZUkwxMVFJU3dySjZrRjQwaGJ4b2wtbUt1cVpCUGlSTXN3WmVSN1BYVUdyc1ZvdXJtdVUwEhdTbkpmYXVxTUJZX1o1T1VQOUpDRTRBcxoiQURzcjlmU2IyMnRiNXJ3SGtwdk9zVmdjNmM0SWo5ZnlsQRIEODA1MRoBMyoAMAA4AUAAGAAgzLn35AZKAhAB" target="_blank" rel="noopener">ver todas as avaliações no google</a>
       </div>
     </section>
 
-    <!-- ================= 06 · FORMULÁRIO / ORÇAMENTO ================= -->
+    <!-- ================= FORMULÁRIO / ORÇAMENTO (navy) ================= -->
     <section class="panel panel-navy reveal" id="orcamento">
       <div class="form-grid">
         <div class="form-copy">
-          <span class="micro">Orçamento sem compromisso</span>
-          <h2>Sua obra merece piso de qualidade <i>sem pagar mais por isso</i></h2>
+          <span class="micro">orçamento sem compromisso</span>
+          <h2>sua obra merece piso de qualidade <i>sem pagar mais por isso</i><span class="dot">.</span></h2>
           <p>Preencha ao lado e receba o orçamento direto no seu WhatsApp, com atendimento de um especialista. Se preferir, chame a gente agora:</p>
           <a href="#" class="btn btn-whatsapp js-wa">
             <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .8-.1 1.2Z"/></svg>
-            Chamar no WhatsApp agora
+            chamar no whatsapp agora
           </a>
         </div>
         <div class="form-card">
-          <span class="form-badge">⚡ Resposta rápida em horário comercial</span>
+          <span class="form-badge">⚡ resposta rápida em horário comercial</span>
           <div class="promo-bar" id="promoBar" hidden></div>
-          <h3>Receba seu orçamento no Whats</h3>
+          <h3>receba seu orçamento no whats<span class="dot">.</span></h3>
           <p>Preencha e receba o atendimento de um especialista.</p>
           <form id="leadForm" novalidate>
             <div class="field">
@@ -778,7 +798,7 @@
               <label for="mensagem">Detalhes do projeto (opcional)</label>
               <textarea id="mensagem" name="mensagem" placeholder="Ex.: 60 m² de sala e cozinha, procuro porcelanato acetinado"></textarea>
             </div>
-            <button class="btn btn-whatsapp" type="submit">Quero meu orçamento no WhatsApp</button>
+            <button class="btn btn-whatsapp" type="submit">quero meu orçamento no whatsapp</button>
             <p class="form-note">🔒 Seus dados vão direto para o nosso WhatsApp. Sem spam.</p>
           </form>
         </div>
@@ -788,16 +808,13 @@
     <!-- ================= VISITE NOSSA LOJA ================= -->
     <section class="panel reveal" id="loja">
       <div class="sec-head">
-        <span class="sec-num">07</span>
-        <div>
-          <span class="micro">Visite nossa loja</span>
-          <h2 class="section-title">Venha ver e tocar o piso <i>de perto</i></h2>
-          <p class="section-sub">Estamos em Uberlândia-MG com ambientes montados para você imaginar a sua casa pronta. Passe na loja e saia com o orçamento na mão.</p>
-        </div>
+        <span class="micro">visite nossa loja</span>
+        <h2 class="section-title">venha ver e tocar o piso <em>de perto</em><span class="dot">.</span></h2>
+        <p class="section-sub">Estamos em Uberlândia-MG com ambientes montados para você imaginar a sua casa pronta. Passe na loja e saia com o orçamento na mão.</p>
       </div>
       <div class="visit-grid">
         <div>
-          <ul class="visit-list">
+          <ul class="visit-list stagger">
             <li><span class="ico">📍</span><div><b>Endereço</b><p>Rua João Thomaz de Rezende, 560 — Osvaldo Rezende, Uberlândia/MG</p></div></li>
             <li><span class="ico">📞</span><div><b>Telefone fixo</b><a href="tel:+553432119950">(34) 3211-9950</a></div></li>
             <li><span class="ico">💬</span><div><b>WhatsApp</b><a href="#" class="js-wa">(34) 99887-1579</a></div></li>
@@ -815,7 +832,7 @@
     <!-- ================= FOOTER ================= -->
     <footer class="panel panel-navy footer-panel">
       <span>© <span id="ano"></span> RC Distribuidora de Pisos e Porcelanatos — Uberlândia/MG</span>
-      <a href="#orcamento">Pedir orçamento</a>
+      <a href="#orcamento">pedir orçamento</a>
     </footer>
 
   </div>
@@ -824,7 +841,7 @@
   <div class="sticky-wa">
     <a href="#" class="btn btn-whatsapp js-wa">
       <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .8-.1 1.2Z"/></svg>
-      Pedir orçamento no WhatsApp
+      pedir orçamento no whatsapp
     </a>
   </div>
 
@@ -834,20 +851,18 @@
     var DEFAULT_MSG = 'Olá! Vim pelo site da RC Distribuidora e gostaria de um orçamento de pisos.';
 
     // Promoção no card do formulário (urgência). Deixe '' para ocultar.
-    // Use apenas ofertas REAIS confirmadas com a loja, ex.:
-    // 'Condição especial em porcelanatos fechando neste mês'
+    // Use apenas ofertas REAIS confirmadas com a loja.
     var PROMO_TEXT = '';
 
     // ===== Message match (Oli Gardner) =====
-    // Headline trocada por parâmetro de URL para casar com o texto de cada anúncio.
-    // Ex.: site.com.br/?h=porcelanato  |  ?h=obra  |  ?h=reforma
-    // Também aceita ?produto=Porcelanato para pré-selecionar o campo do formulário.
+    // ?h=porcelanato | ?h=amadeirado | ?h=ceramico | ?h=obra | ?h=reforma
+    // ?produto=Porcelanato pré-seleciona o campo do formulário.
     var HEADLINES = {
-      'porcelanato': 'Porcelanato das melhores marcas com <em>preço de distribuidora</em>',
-      'amadeirado':  'Porcelanato amadeirado: aconchego de madeira, <em>preço de distribuidora</em>',
-      'ceramico':    'Piso cerâmico de qualidade com <em>preço de distribuidora</em>',
-      'obra':        'Todos os pisos da sua obra com <em>preço de distribuidora</em>',
-      'reforma':     'Reforme com as melhores marcas <em>pagando preço de distribuidora</em>'
+      'porcelanato': 'porcelanato das melhores marcas com <em>preço de distribuidora</em><span class="dot">.</span>',
+      'amadeirado':  'porcelanato amadeirado: aconchego de madeira, <em>preço de distribuidora</em><span class="dot">.</span>',
+      'ceramico':    'piso cerâmico de qualidade com <em>preço de distribuidora</em><span class="dot">.</span>',
+      'obra':        'todos os pisos da sua obra com <em>preço de distribuidora</em><span class="dot">.</span>',
+      'reforma':     'reforme com as melhores marcas <em>pagando preço de distribuidora</em><span class="dot">.</span>'
     };
 
     // Dispara evento de conversão nos pixels instalados (Meta / Google)
@@ -862,7 +877,7 @@
       return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
     }
 
-    // Botões/links de WhatsApp (com mensagem por produto quando houver data-produto)
+    // Botões/links de WhatsApp (mensagem específica quando houver data-produto)
     document.querySelectorAll('.js-wa').forEach(function (el) {
       el.addEventListener('click', function (e) {
         e.preventDefault();
@@ -932,18 +947,48 @@
       }
     }
 
-    // Reveal on scroll (respeita prefers-reduced-motion via CSS)
+    // ============================================================
+    // ANIMAÇÕES DE SURGIMENTO NO SCROLL
+    // ============================================================
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Contador animado dos números (20+, 15+)
+    function animateCount(el) {
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var dur = 1200, t0 = null;
+      function tick(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min(1, (ts - t0) / dur);
+        // ease-out para desacelerar no final
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
     (function () {
-      if (!('IntersectionObserver' in window)) {
-        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('on'); });
+      var targets = document.querySelectorAll('.reveal, .stagger, .img-reveal');
+      var counters = document.querySelectorAll('[data-count]');
+
+      if (reduceMotion || !('IntersectionObserver' in window)) {
+        targets.forEach(function (el) { el.classList.add('on'); });
+        counters.forEach(function (el) { el.textContent = el.getAttribute('data-count'); });
         return;
       }
+
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) {
           if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
         });
-      }, { threshold: .12 });
-      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      }, { threshold: .12, rootMargin: '0px 0px -6% 0px' });
+      targets.forEach(function (el) { io.observe(el); });
+
+      var ioCount = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { animateCount(en.target); ioCount.unobserve(en.target); }
+        });
+      }, { threshold: .6 });
+      counters.forEach(function (el) { ioCount.observe(el); });
     })();
 
     /* ===== Casa em traço de projeto que se constrói com o scroll ===== */
@@ -968,7 +1013,6 @@
         });
       });
 
-      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reduceMotion) {
         paths.forEach(function (p) { p.el.style.strokeDashoffset = 0; });
         return;
