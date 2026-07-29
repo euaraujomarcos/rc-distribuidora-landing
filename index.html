@@ -18,7 +18,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300..700;1,300..700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================================
@@ -56,6 +56,7 @@
       --shadow-soft:0 10px 30px rgba(3,19,79,.07);
 
       --font:'Jost',system-ui,sans-serif;
+      --font-title:'Provicali','Fredoka',var(--font);
     }
 
     *{margin:0;padding:0;box-sizing:border-box}
@@ -67,7 +68,16 @@
     }
     img{max-width:100%;display:block}
     a{color:inherit}
-    h1,h2,h3{line-height:1.12;font-weight:500}
+    h1,h2,h3{line-height:1.12;font-weight:500;font-family:var(--font-title)}
+    /* Provicali (títulos): fonte comercial da Chequered Ink. Após comprar a
+       licença, salve o arquivo em assets/fonts/provicali.woff2 e descomente:
+    @font-face{
+      font-family:'Provicali';
+      src:url('assets/fonts/provicali.woff2') format('woff2');
+      font-weight:400 700;font-display:swap;
+    }
+    Enquanto isso, os títulos usam a Fredoka (Google Fonts), o equivalente
+    gratuito mais próximo. */
     .hero-grid>*,.why-grid>*,.form-grid>*,.visit-grid>*{min-width:0}
 
     /* Ponto amarelo — assinatura tipográfica (como o "maes.") */
@@ -92,7 +102,7 @@
     .panel-navy .micro{color:var(--yellow)}
     .section-title{
       font-size:clamp(1.75rem,3.6vw,2.7rem);font-weight:500;
-      letter-spacing:-.015em;margin-bottom:10px;text-transform:lowercase;
+      letter-spacing:-.015em;margin-bottom:10px;
     }
     .section-title em{font-style:normal;font-weight:600;color:var(--blue)}
     .panel-navy .section-title em{color:var(--yellow)}
@@ -104,7 +114,7 @@
       display:inline-flex;align-items:center;justify-content:center;gap:10px;
       font-family:var(--font);font-weight:600;font-size:1rem;letter-spacing:.01em;
       padding:15px 30px;border-radius:999px;border:0;cursor:pointer;
-      text-decoration:none;text-align:center;text-transform:lowercase;
+      text-decoration:none;text-align:center;
       transition:transform .15s ease,box-shadow .15s ease,background .15s ease,color .15s ease,border-color .15s ease;
     }
     .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
@@ -128,7 +138,7 @@
       margin-bottom:clamp(34px,6vw,64px);
     }
     .hero-nav .logo img{height:30px;width:auto}
-    .hero-links{display:flex;gap:26px;font-weight:500;font-size:.92rem;color:var(--on-navy);text-transform:lowercase}
+    .hero-links{display:flex;gap:26px;font-weight:500;font-size:.92rem;color:var(--on-navy)}
     .hero-links a{text-decoration:none}
     .hero-links a:hover{color:var(--yellow)}
     .hero-nav-ctas{display:flex;gap:10px}
@@ -188,7 +198,7 @@
     .hero-kicker::before{content:"";width:26px;height:1.5px;background:var(--yellow);flex:none}
     .hero-copy h1{
       font-size:clamp(2.15rem,5vw,3.6rem);font-weight:500;letter-spacing:-.02em;
-      margin-bottom:18px;text-transform:lowercase;
+      margin-bottom:18px;
     }
     .hero-copy h1 em{font-style:normal;font-weight:600;color:var(--yellow)}
     .hero-sub{color:var(--on-navy);font-size:1.08rem;font-weight:300;max-width:500px;margin-bottom:28px}
@@ -230,7 +240,7 @@
       animation:marq 26s linear infinite;
     }
     .marquee-track span{
-      font-weight:500;font-size:1.02rem;text-transform:lowercase;letter-spacing:.02em;
+      font-weight:500;font-size:1.02rem;letter-spacing:.02em;
       padding-right:12px;
     }
     @keyframes marq{to{transform:translateX(-50%)}}
@@ -243,7 +253,7 @@
     .why-mini div{
       padding:13px 4px;border-bottom:1px solid var(--line);
       font-weight:500;font-size:.95rem;display:flex;gap:12px;align-items:center;
-      text-transform:lowercase;
+      
     }
     .why-mini div::before{content:"✓";color:var(--whatsapp-dark);font-weight:600}
     .why-cards{display:grid;gap:14px;align-content:center}
@@ -254,7 +264,7 @@
     }
     .why-card:hover{transform:translateY(-3px)}
     .why-card img{width:64px;height:64px;border-radius:12px;object-fit:cover;flex:none}
-    .why-card h3{font-size:1.05rem;font-weight:500;margin-bottom:3px;text-transform:lowercase}
+    .why-card h3{font-size:1.05rem;font-weight:500;margin-bottom:3px}
     .why-card h3 i{font-style:normal;font-weight:600;color:var(--yellow)}
     .why-card p{color:var(--on-navy);font-size:.86rem;font-weight:300;line-height:1.45}
 
@@ -280,18 +290,18 @@
       display:flex;align-items:center;gap:10px;
     }
     .card-index::after{content:"";height:1px;background:var(--line);flex:1}
-    .card-body h3{font-size:1.25rem;font-weight:500;letter-spacing:-.01em;text-transform:lowercase}
+    .card-body h3{font-size:1.25rem;font-weight:500;letter-spacing:-.01em}
     .card-body p{color:var(--ink-soft);font-size:.9rem;flex:1}
     .card-body a{
       color:var(--blue);font-weight:600;font-size:.9rem;text-decoration:none;margin-top:6px;
-      display:inline-block;padding:4px 0;text-transform:lowercase;
+      display:inline-block;padding:4px 0;
     }
     .card-body a:hover{text-decoration:underline}
     .card-full{
       background:var(--navy);color:#fff;border-color:var(--navy);
       justify-content:center;align-items:flex-start;gap:12px;padding:30px;
     }
-    .card-full h3{font-size:1.55rem;font-weight:500;text-transform:lowercase}
+    .card-full h3{font-size:1.55rem;font-weight:500}
     .card-full h3 i{font-style:normal;font-weight:600;color:var(--yellow)}
     .card-full p{color:var(--on-navy);font-size:.92rem;font-weight:300}
     @media(max-width:679px){
@@ -307,7 +317,7 @@
     .brand-card{border-radius:var(--r-card);padding:26px;background:#fff;border:1px solid var(--line)}
     .brand-card.navy{background:var(--navy);color:#fff;border-color:var(--navy)}
     .brand-card h3{
-      font-size:.86rem;font-weight:600;text-transform:lowercase;letter-spacing:.05em;
+      font-size:.86rem;font-weight:600;letter-spacing:.05em;
       margin-bottom:16px;color:var(--blue);display:flex;align-items:center;gap:10px;
     }
     .brand-card.navy h3{color:var(--yellow)}
@@ -332,7 +342,7 @@
       font-weight:300;font-size:2.3rem;color:var(--yellow-dark);
       line-height:1;margin-bottom:12px;display:block;font-variant-numeric:tabular-nums;
     }
-    .step h3{font-size:1.18rem;font-weight:500;margin-bottom:6px;text-transform:lowercase}
+    .step h3{font-size:1.18rem;font-weight:500;margin-bottom:6px}
     .step p{color:var(--ink-soft);font-size:.94rem}
 
     /* ---------- Depoimentos ---------- */
@@ -363,7 +373,7 @@
     @media(min-width:920px){.form-grid{grid-template-columns:1fr 1fr;gap:60px}}
     .form-copy h2{
       font-size:clamp(1.75rem,3.5vw,2.6rem);font-weight:500;letter-spacing:-.015em;
-      margin-bottom:14px;text-transform:lowercase;
+      margin-bottom:14px;
     }
     .form-copy h2 i{font-style:normal;font-weight:600;color:var(--blue)}
     .form-copy>p{color:var(--ink-soft);max-width:440px;margin-bottom:22px}
@@ -374,13 +384,13 @@
     .form-badge{
       display:inline-block;background:rgba(252,188,2,.18);color:#8A6700;
       font-size:.78rem;font-weight:600;padding:5px 12px;border-radius:999px;margin-bottom:12px;
-      text-transform:lowercase;
+      
     }
     .promo-bar{
       background:var(--yellow);color:var(--navy);font-size:.88rem;font-weight:600;
       padding:10px 14px;border-radius:10px;margin-bottom:14px;
     }
-    .form-card h3{font-size:1.4rem;font-weight:500;margin-bottom:4px;text-transform:lowercase}
+    .form-card h3{font-size:1.4rem;font-weight:500;margin-bottom:4px}
     .form-card>p{color:var(--ink-soft);font-size:.9rem;margin-bottom:18px}
     .field{margin-bottom:13px}
     .field label{display:block;font-weight:500;font-size:.88rem;margin-bottom:6px}
@@ -420,7 +430,7 @@
       display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;
       color:var(--on-navy);font-size:.88rem;font-weight:300;
     }
-    .footer-panel a{color:var(--yellow);font-weight:500;text-transform:lowercase}
+    .footer-panel a{color:var(--yellow);font-weight:500}
 
     /* ---------- Ajustes finos mobile (mobile first) ---------- */
     @media(max-width:560px){
@@ -544,13 +554,13 @@
       <nav class="hero-nav">
         <a href="#" class="logo"><img src="assets/logo-topo.png" alt="RC Distribuidora de Pisos e Porcelanatos"></a>
         <div class="hero-links">
-          <a href="#produtos">produtos</a>
-          <a href="#marcas">marcas</a>
-          <a href="#depoimentos">depoimentos</a>
-          <a href="#loja">nossa loja</a>
+          <a href="#produtos">Produtos</a>
+          <a href="#marcas">Marcas</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#loja">Nossa loja</a>
         </div>
         <div class="hero-nav-ctas">
-          <a href="#orcamento" class="btn btn-outline btn-sm hide-m">pedir orçamento</a>
+          <a href="#orcamento" class="btn btn-outline btn-sm hide-m">Pedir orçamento</a>
           <a href="#" class="btn btn-yellow btn-sm js-wa">
             <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .8-.1 1.2Z"/></svg>
             <span class="num">(34) 99887-1579</span>
@@ -559,19 +569,19 @@
       </nav>
 
       <div class="hero-copy">
-        <span class="hero-kicker">distribuidora de pisos · uberlândia-mg</span>
-        <h1 id="headline">o piso que você procura, com <em>preço de distribuidora</em><span class="dot">.</span></h1>
+        <span class="hero-kicker">Distribuidora de pisos · Uberlândia-MG</span>
+        <h1 id="headline">O piso que você procura, com <em>preço de distribuidora</em><span class="dot">.</span></h1>
         <p class="hero-sub">Villagres, Majopar, Helena, Delta, Incefra e outras marcas líderes, com atendimento de gente que entende de piso. Do orçamento à entrega, a gente cuida da sua obra ou reforma.</p>
         <div class="hero-ctas">
           <a href="#" class="btn btn-whatsapp js-wa">
             <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .8-.1 1.2Z"/></svg>
-            chamar no whatsapp
+            Chamar no WhatsApp
           </a>
-          <a href="#orcamento" class="btn btn-yellow">receber orçamento no meu whats</a>
+          <a href="#orcamento" class="btn btn-yellow">Receber orçamento no meu Whats</a>
         </div>
         <div class="hero-checks">
-          <span>orçamento sem compromisso</span>
-          <span>pronta entrega na região</span>
+          <span>Orçamento sem compromisso</span>
+          <span>Pronta entrega na região</span>
         </div>
       </div>
       <div class="hero-dots">
@@ -583,27 +593,27 @@
       <div class="stats-row stagger">
         <div class="stat"><b><span data-count="20">0</span><i>+</i></b><span>anos de história em Uberlândia</span></div>
         <div class="stat"><b><span data-count="15">0</span><i>+</i></b><span>marcas líderes de mercado</span></div>
-        <div class="stat"><b>milhares</b><span>de obras atendidas na região</span></div>
+        <div class="stat"><b>Milhares</b><span>de obras atendidas na região</span></div>
       </div>
-      <span class="hero-caption">porcelanatos villagres · ambientes do catálogo</span>
+      <span class="hero-caption">Porcelanatos Villagres · ambientes do catálogo</span>
     </section>
 
     <!-- ================= FORMULÁRIO / ORÇAMENTO (2ª seção) ================= -->
     <section class="panel reveal" id="orcamento">
       <div class="form-grid">
         <div class="form-copy">
-          <span class="micro">orçamento sem compromisso</span>
-          <h2>sua obra merece piso de qualidade <i>sem pagar mais por isso</i><span class="dot">.</span></h2>
+          <span class="micro">Orçamento sem compromisso</span>
+          <h2>Sua obra merece piso de qualidade <i>sem pagar mais por isso</i><span class="dot">.</span></h2>
           <p>Preencha ao lado e receba o orçamento direto no seu WhatsApp, com atendimento de um especialista. Se preferir, chame a gente agora:</p>
           <a href="#" class="btn btn-whatsapp js-wa">
             <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .8-.1 1.2Z"/></svg>
-            chamar no whatsapp agora
+            Chamar no WhatsApp agora
           </a>
         </div>
         <div class="form-card">
-          <span class="form-badge">resposta rápida em horário comercial</span>
+          <span class="form-badge">Resposta rápida em horário comercial</span>
           <div class="promo-bar" id="promoBar" hidden></div>
-          <h3>receba seu orçamento no whats<span class="dot">.</span></h3>
+          <h3>Receba seu orçamento no Whats<span class="dot">.</span></h3>
           <p>Preencha e receba o atendimento de um especialista.</p>
           <form id="leadForm" novalidate>
             <div class="field">
@@ -631,7 +641,7 @@
               <label for="mensagem">Detalhes do projeto (opcional)</label>
               <textarea id="mensagem" name="mensagem" placeholder="Ex.: 60 m² de sala e cozinha, procuro porcelanato acetinado"></textarea>
             </div>
-            <button class="btn btn-whatsapp" type="submit">quero meu orçamento no whatsapp</button>
+            <button class="btn btn-whatsapp" type="submit">Quero meu orçamento no WhatsApp</button>
             <p class="form-note">Seus dados vão direto para o nosso WhatsApp. Sem spam.</p>
           </form>
         </div>
@@ -641,38 +651,38 @@
     <!-- ================= MARQUEE ================= -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span>porcelanatos · pisos cerâmicos · linha amadeirada · área externa · louças · metais · pronta entrega · uberlândia e região&nbsp;·&nbsp;</span>
-        <span>porcelanatos · pisos cerâmicos · linha amadeirada · área externa · louças · metais · pronta entrega · uberlândia e região&nbsp;·&nbsp;</span>
+        <span>Porcelanatos · Pisos cerâmicos · Linha amadeirada · Área externa · Louças · Metais · Pronta entrega · Uberlândia e região&nbsp;·&nbsp;</span>
+        <span>Porcelanatos · Pisos cerâmicos · Linha amadeirada · Área externa · Louças · Metais · Pronta entrega · Uberlândia e região&nbsp;·&nbsp;</span>
       </div>
     </div>
 
     <!-- ================= POR QUE A RC ================= -->
     <section class="panel reveal" id="porque">
       <div class="sec-head">
-        <span class="micro">por que a rc</span>
-        <h2 class="section-title">preço de distribuidora, atendimento de <em>loja de bairro</em><span class="dot">.</span></h2>
+        <span class="micro">Por que a RC</span>
+        <h2 class="section-title">Preço de distribuidora, atendimento de <em>loja de bairro</em><span class="dot">.</span></h2>
       </div>
       <div class="why-grid">
         <div class="why-left">
           <p>Compramos em volume direto das fábricas e repassamos a economia para você, sem abrir mão do atendimento próximo que ajuda na escolha certa para cada ambiente.</p>
           <div class="why-mini stagger">
-            <div>marcas líderes reconhecidas pela qualidade</div>
-            <div>atendimento personalizado do início ao fim</div>
-            <div>parcelamento e condições para grandes volumes</div>
+            <div>Marcas líderes reconhecidas pela qualidade</div>
+            <div>Atendimento personalizado do início ao fim</div>
+            <div>Parcelamento e condições para grandes volumes</div>
           </div>
         </div>
         <div class="why-cards stagger">
           <div class="why-card">
             <img src="assets/villagres-1.webp" alt="">
-            <div><h3>preço direto de <i>distribuidora</i></h3><p>Compra em volume das fábricas, economia repassada pra você.</p></div>
+            <div><h3>Preço direto de <i>distribuidora</i></h3><p>Compra em volume das fábricas, economia repassada pra você.</p></div>
           </div>
           <div class="why-card">
             <img src="assets/helena-banho.jpg" alt="">
-            <div><h3>orientação <i>técnica</i></h3><p>Cálculo de metragem e escolha do piso certo para cada ambiente.</p></div>
+            <div><h3>Orientação <i>técnica</i></h3><p>Cálculo de metragem e escolha do piso certo para cada ambiente.</p></div>
           </div>
           <div class="why-card">
             <img src="assets/helena-coliseu.jpg" alt="">
-            <div><h3>entrega em uberlândia <i>e região</i></h3><p>Logística própria para sua obra não parar por falta de material.</p></div>
+            <div><h3>Entrega em Uberlândia <i>e região</i></h3><p>Logística própria para sua obra não parar por falta de material.</p></div>
           </div>
         </div>
       </div>
@@ -682,62 +692,62 @@
     <section class="panel reveal" id="produtos">
       <div class="products-head">
         <div class="sec-head" style="margin-bottom:20px">
-          <span class="micro">nossos produtos</span>
-          <h2 class="section-title">tudo para o piso da sua <em>obra ou reforma</em><span class="dot">.</span></h2>
+          <span class="micro">Nossos produtos</span>
+          <h2 class="section-title">Tudo para o piso da sua <em>obra ou reforma</em><span class="dot">.</span></h2>
           <p class="section-sub">Variedade em tamanhos, acabamentos e faixas de preço, sempre com orientação técnica para você comprar a metragem certa.</p>
         </div>
-        <a href="#" class="btn btn-navy js-wa">ver preços no whatsapp</a>
+        <a href="#" class="btn btn-navy js-wa">Ver preços no WhatsApp</a>
       </div>
       <div class="cards stagger">
         <article class="card">
           <div class="card-media"><img src="assets/villagres-2.webp" alt="Bancada e ambiente com porcelanato Villagres" loading="lazy"></div>
           <div class="card-body">
-            <span class="card-index">p.01</span>
-            <h3>porcelanatos</h3>
+            <span class="card-index">P.01</span>
+            <h3>Porcelanatos</h3>
             <p>Polidos, acetinados e naturais, incluindo grandes placas.</p>
-            <a href="#" class="js-wa" data-produto="Porcelanato">ver preços no whatsapp →</a>
+            <a href="#" class="js-wa" data-produto="Porcelanato">Ver preços no WhatsApp →</a>
           </div>
         </article>
         <article class="card">
           <div class="card-media"><img src="assets/majopar-imperialle.jpg" alt="Varanda com piso cerâmico Majopar" style="object-position:center 70%" loading="lazy"></div>
           <div class="card-body">
-            <span class="card-index">p.02</span>
-            <h3>pisos cerâmicos</h3>
+            <span class="card-index">P.02</span>
+            <h3>Pisos cerâmicos</h3>
             <p>Ótimo custo-benefício para todos os ambientes, com pronta entrega.</p>
-            <a href="#" class="js-wa" data-produto="Piso cerâmico">ver preços no whatsapp →</a>
+            <a href="#" class="js-wa" data-produto="Piso cerâmico">Ver preços no WhatsApp →</a>
           </div>
         </article>
         <article class="card">
           <div class="card-media"><img src="assets/helena-banho.jpg" alt="Banheiro com revestimento de parede Helena" loading="lazy"></div>
           <div class="card-body">
-            <span class="card-index">p.03</span>
-            <h3>revestimentos de parede</h3>
+            <span class="card-index">P.03</span>
+            <h3>Revestimentos de parede</h3>
             <p>Opções decorativas para cozinhas, banheiros e fachadas.</p>
-            <a href="#" class="js-wa" data-produto="Revestimento de parede">ver preços no whatsapp →</a>
+            <a href="#" class="js-wa" data-produto="Revestimento de parede">Ver preços no WhatsApp →</a>
           </div>
         </article>
         <article class="card">
           <div class="card-media"><img src="assets/helena-coliseu.jpg" alt="Área externa com piso antiderrapante" style="object-position:center 60%" loading="lazy"></div>
           <div class="card-body">
-            <span class="card-index">p.04</span>
-            <h3>pisos para área externa</h3>
+            <span class="card-index">P.04</span>
+            <h3>Pisos para área externa</h3>
             <p>Antiderrapantes e resistentes para garagens, quintais e lazer.</p>
-            <a href="#" class="js-wa" data-produto="Piso para área externa">ver preços no whatsapp →</a>
+            <a href="#" class="js-wa" data-produto="Piso para área externa">Ver preços no WhatsApp →</a>
           </div>
         </article>
         <article class="card">
           <div class="card-media"><img src="assets/helena-teca.jpg" alt="Ambiente com porcelanato amadeirado Helena Teca" style="object-position:center 75%" loading="lazy"></div>
           <div class="card-body">
-            <span class="card-index">p.05</span>
-            <h3>linha amadeirada</h3>
+            <span class="card-index">P.05</span>
+            <h3>Linha amadeirada</h3>
             <p>O aconchego da madeira com a durabilidade do porcelanato.</p>
-            <a href="#" class="js-wa" data-produto="Porcelanato amadeirado">ver preços no whatsapp →</a>
+            <a href="#" class="js-wa" data-produto="Porcelanato amadeirado">Ver preços no WhatsApp →</a>
           </div>
         </article>
         <article class="card card-full">
-          <h3>obra completa? <i>preço especial.</i></h3>
+          <h3>Obra completa? <i>Preço especial.</i></h3>
           <p>Condições diferenciadas para construtores e compras em grande volume.</p>
-          <a href="#" class="btn btn-yellow js-wa" data-produto="Materiais para obra completa">falar com especialista</a>
+          <a href="#" class="btn btn-yellow js-wa" data-produto="Materiais para obra completa">Falar com especialista</a>
         </article>
       </div>
     </section>
@@ -745,13 +755,13 @@
     <!-- ================= MARCAS ================= -->
     <section class="panel reveal" id="marcas">
       <div class="sec-head">
-        <span class="micro">marcas parceiras</span>
-        <h2 class="section-title">trabalhamos com quem é <em>referência</em><span class="dot">.</span></h2>
+        <span class="micro">Marcas parceiras</span>
+        <h2 class="section-title">Trabalhamos com quem é <em>referência</em><span class="dot">.</span></h2>
         <p class="section-sub">Do piso à torneira, você encontra em um só lugar as marcas que os profissionais confiam.</p>
       </div>
       <div class="brand-grid stagger">
         <div class="brand-card">
-          <h3>pisos e porcelanatos</h3>
+          <h3>Pisos e porcelanatos</h3>
           <ul class="brand-list">
             <li>Majopar</li><li>Villagres</li><li>Helena</li><li>Delta</li>
             <li>Incefra</li><li>InOut</li><li>Duragres</li><li>Viva</li>
@@ -759,21 +769,21 @@
           </ul>
         </div>
         <div class="brand-card navy">
-          <h3>louças</h3>
+          <h3>Louças</h3>
           <ul class="brand-list">
             <li>Celite</li><li>Roca</li>
           </ul>
         </div>
         <div class="brand-card">
-          <h3>metais</h3>
+          <h3>Metais</h3>
           <ul class="brand-list">
             <li>Gold Flex</li><li>Celite</li><li>Incepa</li><li>Fani</li>
           </ul>
         </div>
         <div class="brand-card navy">
-          <h3>condições facilitadas</h3>
+          <h3>Condições facilitadas</h3>
           <p>Parcelamento e condições especiais para grandes volumes. Conte pra gente o tamanho da sua obra.</p>
-          <a href="#" class="btn btn-yellow btn-sm js-wa">consultar condições no whats</a>
+          <a href="#" class="btn btn-yellow btn-sm js-wa">Consultar condições no Whats</a>
         </div>
       </div>
     </section>
@@ -781,23 +791,23 @@
     <!-- ================= COMO FUNCIONA ================= -->
     <section class="panel reveal">
       <div class="sec-head">
-        <span class="micro">como funciona</span>
-        <h2 class="section-title">três passos até o seu <em>piso novo</em><span class="dot">.</span></h2>
+        <span class="micro">Como funciona</span>
+        <h2 class="section-title">Três passos até o seu <em>piso novo</em><span class="dot">.</span></h2>
       </div>
       <div class="steps-grid stagger">
         <div class="step">
           <span class="step-num">01</span>
-          <h3>chame no whatsapp</h3>
+          <h3>Chame no WhatsApp</h3>
           <p>Mande a metragem e o tipo de ambiente ou, se preferir, preencha o formulário que a gente te chama.</p>
         </div>
         <div class="step">
           <span class="step-num">02</span>
-          <h3>receba orçamento e orientação</h3>
+          <h3>Receba orçamento e orientação</h3>
           <p>Um especialista calcula a metragem certa e monta as melhores condições pra você.</p>
         </div>
         <div class="step">
           <span class="step-num">03</span>
-          <h3>receba na sua obra</h3>
+          <h3>Receba na sua obra</h3>
           <p>Pronta entrega em Uberlândia e região, ou retire direto na loja se preferir.</p>
         </div>
       </div>
@@ -806,8 +816,8 @@
     <!-- ================= DEPOIMENTOS ================= -->
     <section class="panel reveal" id="depoimentos">
       <div class="sec-head">
-        <span class="micro">quem comprou, recomenda</span>
-        <h2 class="section-title">o que dizem nossos <em>clientes</em><span class="dot">.</span></h2>
+        <span class="micro">Quem comprou, recomenda</span>
+        <h2 class="section-title">O que dizem nossos <em>clientes</em><span class="dot">.</span></h2>
       </div>
       <!-- Avaliações reais publicadas no Google (perfil da empresa) -->
       <div class="quotes stagger">
@@ -828,15 +838,15 @@
         </article>
       </div>
       <div class="quotes-cta">
-        <a class="btn btn-outline" href="https://www.google.com/search?q=rc+distribuidora+de+pisos#sv=CAESzQEKuQEStgEKd0FKaVQ0dExXWnN5TmtXbFFwWDI1VDFxV2d4OUNtb3VQWGJSN1NuYk1OODRobVp4Sm5kRnRHNjRzeS1wNDZwUG1sck9ZUkwxMVFJU3dySjZrRjQwaGJ4b2wtbUt1cVpCUGlSTXN3WmVSN1BYVUdyc1ZvdXJtdVUwEhdTbkpmYXVxTUJZX1o1T1VQOUpDRTRBcxoiQURzcjlmU2IyMnRiNXJ3SGtwdk9zVmdjNmM0SWo5ZnlsQRIEODA1MRoBMyoAMAA4AUAAGAAgzLn35AZKAhAB" target="_blank" rel="noopener">ver todas as avaliações no google</a>
+        <a class="btn btn-outline" href="https://www.google.com/search?q=rc+distribuidora+de+pisos#sv=CAESzQEKuQEStgEKd0FKaVQ0dExXWnN5TmtXbFFwWDI1VDFxV2d4OUNtb3VQWGJSN1NuYk1OODRobVp4Sm5kRnRHNjRzeS1wNDZwUG1sck9ZUkwxMVFJU3dySjZrRjQwaGJ4b2wtbUt1cVpCUGlSTXN3WmVSN1BYVUdyc1ZvdXJtdVUwEhdTbkpmYXVxTUJZX1o1T1VQOUpDRTRBcxoiQURzcjlmU2IyMnRiNXJ3SGtwdk9zVmdjNmM0SWo5ZnlsQRIEODA1MRoBMyoAMAA4AUAAGAAgzLn35AZKAhAB" target="_blank" rel="noopener">Ver todas as avaliações no Google</a>
       </div>
     </section>
 
     <!-- ================= VISITE NOSSA LOJA ================= -->
     <section class="panel reveal" id="loja">
       <div class="sec-head">
-        <span class="micro">visite nossa loja</span>
-        <h2 class="section-title">venha ver e tocar o piso <em>de perto</em><span class="dot">.</span></h2>
+        <span class="micro">Visite nossa loja</span>
+        <h2 class="section-title">Venha ver e tocar o piso <em>de perto</em><span class="dot">.</span></h2>
         <p class="section-sub">Estamos em Uberlândia-MG com ambientes montados para você imaginar a sua casa pronta. Passe na loja e saia com o orçamento na mão.</p>
       </div>
       <div class="visit-grid">
@@ -859,7 +869,7 @@
     <!-- ================= FOOTER ================= -->
     <footer class="panel panel-navy footer-panel">
       <span>© <span id="ano"></span> RC Distribuidora de Pisos e Porcelanatos · Uberlândia/MG</span>
-      <a href="#orcamento">pedir orçamento</a>
+      <a href="#orcamento">Pedir orçamento</a>
     </footer>
 
   </div>
@@ -877,11 +887,11 @@
     // ?h=porcelanato | ?h=amadeirado | ?h=ceramico | ?h=obra | ?h=reforma
     // ?produto=Porcelanato pré-seleciona o campo do formulário.
     var HEADLINES = {
-      'porcelanato': 'porcelanato das melhores marcas com <em>preço de distribuidora</em><span class="dot">.</span>',
-      'amadeirado':  'porcelanato amadeirado: aconchego de madeira, <em>preço de distribuidora</em><span class="dot">.</span>',
-      'ceramico':    'piso cerâmico de qualidade com <em>preço de distribuidora</em><span class="dot">.</span>',
-      'obra':        'todos os pisos da sua obra com <em>preço de distribuidora</em><span class="dot">.</span>',
-      'reforma':     'reforme com as melhores marcas <em>pagando preço de distribuidora</em><span class="dot">.</span>'
+      'porcelanato': 'Porcelanato das melhores marcas com <em>preço de distribuidora</em><span class="dot">.</span>',
+      'amadeirado':  'Porcelanato amadeirado: aconchego de madeira, <em>preço de distribuidora</em><span class="dot">.</span>',
+      'ceramico':    'Piso cerâmico de qualidade com <em>preço de distribuidora</em><span class="dot">.</span>',
+      'obra':        'Todos os pisos da sua obra com <em>preço de distribuidora</em><span class="dot">.</span>',
+      'reforma':     'Reforme com as melhores marcas <em>pagando preço de distribuidora</em><span class="dot">.</span>'
     };
 
     // Dispara evento de conversão nos pixels instalados (Meta / Google)
