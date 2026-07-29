@@ -398,7 +398,6 @@
       display:flex;gap:14px;align-items:flex-start;
       border-bottom:1px solid var(--line);padding:15px 4px;
     }
-    .visit-list .ico{font-size:1.1rem;flex:none;margin-top:2px}
     .visit-list b{display:block;font-size:.92rem;font-weight:600}
     .visit-list li>div{min-width:0;flex:1}
     .visit-list a{color:var(--blue);text-decoration:none;font-weight:500;font-size:.95rem;overflow-wrap:anywhere}
@@ -605,7 +604,7 @@
           </a>
         </div>
         <div class="form-card">
-          <span class="form-badge">⚡ resposta rápida em horário comercial</span>
+          <span class="form-badge">resposta rápida em horário comercial</span>
           <div class="promo-bar" id="promoBar" hidden></div>
           <h3>receba seu orçamento no whats<span class="dot">.</span></h3>
           <p>Preencha e receba o atendimento de um especialista.</p>
@@ -636,7 +635,7 @@
               <textarea id="mensagem" name="mensagem" placeholder="Ex.: 60 m² de sala e cozinha, procuro porcelanato acetinado"></textarea>
             </div>
             <button class="btn btn-whatsapp" type="submit">quero meu orçamento no whatsapp</button>
-            <p class="form-note">🔒 Seus dados vão direto para o nosso WhatsApp. Sem spam.</p>
+            <p class="form-note">Seus dados vão direto para o nosso WhatsApp. Sem spam.</p>
           </form>
         </div>
       </div>
@@ -846,12 +845,12 @@
       <div class="visit-grid">
         <div>
           <ul class="visit-list stagger">
-            <li><span class="ico">📍</span><div><b>Endereço</b><p>Rua João Thomaz de Rezende, 560, Osvaldo Rezende, Uberlândia/MG</p></div></li>
-            <li><span class="ico">📞</span><div><b>Telefone fixo</b><a href="tel:+553432119950">(34) 3211-9950</a></div></li>
-            <li><span class="ico">💬</span><div><b>WhatsApp</b><a href="#" class="js-wa">(34) 99887-1579</a></div></li>
-            <li><span class="ico">✉️</span><div><b>E-mail</b><a href="mailto:contato@rcdistribuidoradepisos.com.br">contato@rcdistribuidoradepisos.com.br</a></div></li>
+            <li><div><b>Endereço</b><p>Rua João Thomaz de Rezende, 560, Osvaldo Rezende, Uberlândia/MG</p></div></li>
+            <li><div><b>Telefone fixo</b><a href="tel:+553432119950">(34) 3211-9950</a></div></li>
+            <li><div><b>WhatsApp</b><a href="#" class="js-wa">(34) 99887-1579</a></div></li>
+            <li><div><b>E-mail</b><a href="mailto:contato@rcdistribuidoradepisos.com.br">contato@rcdistribuidoradepisos.com.br</a></div></li>
           </ul>
-          <div class="visit-hours">💡 Dica: traga a metragem dos seus ambientes (ou uma foto da planta) e nossa equipe calcula tudo com você na hora.</div>
+          <div class="visit-hours">Dica: traga a metragem dos seus ambientes (ou uma foto da planta) e nossa equipe calcula tudo com você na hora.</div>
         </div>
         <div class="map-frame">
           <iframe title="Mapa da RC Distribuidora em Uberlândia" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
@@ -957,7 +956,7 @@
     // Aplica promoção, se configurada
     if (PROMO_TEXT) {
       var promo = document.getElementById('promoBar');
-      promo.textContent = '🔥 ' + PROMO_TEXT;
+      promo.textContent = PROMO_TEXT;
       promo.hidden = false;
     }
 
