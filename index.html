@@ -73,7 +73,7 @@
     /* Ponto amarelo — assinatura tipográfica (como o "maes.") */
     .dot{color:var(--yellow)}
 
-    .page{width:min(1180px,94%);margin-inline:auto;display:grid;gap:18px;padding:18px 0 26px;position:relative;z-index:1}
+    .page{width:min(1180px,94%);margin-inline:auto;display:grid;gap:18px;padding:0 0 26px;position:relative;z-index:1}
     .panel{
       background:var(--card);border-radius:var(--r-panel);
       padding:clamp(26px,4.5vw,60px);box-shadow:var(--shadow-soft);
@@ -141,11 +141,16 @@
     }
 
     /* ---------- Hero: carrossel de fotos Villagres com headline por cima ---------- */
+    /* Full-bleed: cola no topo e nas laterais da tela; arredondado só embaixo */
     .hero-panel{
       background:var(--navy); /* fallback enquanto a primeira foto carrega */
       color:#fff;
       display:flex;flex-direction:column;
       min-height:min(88svh,840px);
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+      border-radius:0 0 var(--r-panel) var(--r-panel);
+      padding-inline:max(calc((100vw - 1120px)/2), clamp(20px,5vw,60px));
     }
     .hero-slides{position:absolute;inset:0;z-index:0;overflow:hidden}
     .hero-slide{
@@ -419,8 +424,9 @@
 
     /* ---------- Ajustes finos mobile (mobile first) ---------- */
     @media(max-width:560px){
-      .page{width:94%;gap:14px;padding-top:14px}
+      .page{width:94%;gap:14px}
       .panel{border-radius:22px}
+      .hero-panel{border-radius:0 0 22px 22px}
       .hero-copy h1{font-size:2rem}
       .hero-ctas{flex-direction:column;align-items:stretch}
       .hero-ctas .btn{width:100%;min-height:54px}
