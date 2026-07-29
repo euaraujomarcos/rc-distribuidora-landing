@@ -140,16 +140,41 @@
       .hero-nav .logo img{height:24px}
     }
 
-    /* ---------- Hero: foto preenchendo o topo, headline por cima ---------- */
+    /* ---------- Hero: carrossel de fotos Villagres com headline por cima ---------- */
     .hero-panel{
-      background:
-        linear-gradient(180deg,rgba(3,19,79,.86) 0%,rgba(3,19,79,.5) 42%,rgba(3,19,79,.84) 100%),
-        url('assets/villagres-1.webp') center/cover no-repeat;
+      background:var(--navy); /* fallback enquanto a primeira foto carrega */
       color:#fff;
       display:flex;flex-direction:column;
       min-height:min(88svh,840px);
     }
+    .hero-slides{position:absolute;inset:0;z-index:0;overflow:hidden}
+    .hero-slide{
+      position:absolute;inset:0;background-size:cover;background-position:center;
+      opacity:0;transition:opacity 1.2s ease;will-change:opacity,transform;
+    }
+    .hero-slide.active{opacity:1;animation:kenburns 9s ease-out forwards}
+    @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.06)}}
+
+    /* Legibilidade sem véu na foto: sombreado neutro só atrás do texto */
+    .hero-scrim{
+      position:absolute;inset:0;z-index:1;pointer-events:none;
+      background:
+        linear-gradient(90deg,rgba(9,11,19,.66) 0%,rgba(9,11,19,.3) 46%,rgba(9,11,19,0) 72%),
+        linear-gradient(0deg,rgba(9,11,19,.5) 0%,rgba(9,11,19,0) 32%);
+    }
+    @media(max-width:640px){
+      .hero-scrim{background:linear-gradient(0deg,rgba(9,11,19,.68) 0%,rgba(9,11,19,.26) 55%,rgba(9,11,19,.4) 100%)}
+    }
+    .hero-panel .hero-nav,.hero-panel .hero-copy,.hero-panel .stats-row{position:relative;z-index:2}
     .hero-copy{flex:1;display:flex;flex-direction:column;justify-content:center;max-width:660px;padding:12px 0 28px}
+    .hero-copy h1{text-shadow:0 2px 20px rgba(0,0,0,.3)}
+
+    .hero-dots{position:absolute;left:20px;bottom:16px;z-index:2;display:flex;gap:8px}
+    .hero-dots button{
+      width:9px;height:9px;border-radius:50%;border:0;padding:0;cursor:pointer;
+      background:rgba(255,255,255,.45);transition:background .2s ease,transform .2s ease;
+    }
+    .hero-dots button.active{background:var(--yellow);transform:scale(1.25)}
     .hero-kicker{
       display:flex;align-items:center;gap:10px;
       font-weight:500;font-size:.86rem;letter-spacing:.04em;
@@ -182,8 +207,8 @@
     }
 
     .hero-caption{
-      position:absolute;bottom:14px;right:16px;
-      background:rgba(3,19,79,.6);color:#DBE3F5;font-size:.72rem;
+      position:absolute;bottom:14px;right:16px;z-index:2;
+      background:rgba(9,11,19,.55);color:#DBE3F5;font-size:.72rem;
       padding:5px 12px;border-radius:999px;
     }
     @media(max-width:560px){.hero-caption{display:none}}
@@ -509,8 +534,15 @@
 
   <div class="page">
 
-    <!-- ================= HERO (foto de fundo + headline) ================= -->
+    <!-- ================= HERO (carrossel Villagres + headline) ================= -->
     <section class="panel hero-panel">
+      <div class="hero-slides" aria-hidden="true">
+        <div class="hero-slide active" style="background-image:url('assets/villagres-1.webp')"></div>
+        <div class="hero-slide" style="background-image:url('assets/villagres-slide-2.webp')"></div>
+        <div class="hero-slide" style="background-image:url('assets/villagres-slide-3.webp')"></div>
+        <div class="hero-slide" style="background-image:url('assets/villagres-slide-4.webp')"></div>
+      </div>
+      <div class="hero-scrim" aria-hidden="true"></div>
       <nav class="hero-nav">
         <a href="#" class="logo"><img src="assets/logo-topo.png" alt="RC Distribuidora de Pisos e Porcelanatos"></a>
         <div class="hero-links">
@@ -549,7 +581,13 @@
         <div class="stat"><b><span data-count="15">0</span><i>+</i></b><span>marcas líderes de mercado</span></div>
         <div class="stat"><b>milhares</b><span>de obras atendidas na região</span></div>
       </div>
-      <span class="hero-caption">porcelanato villagres · ambiente do catálogo</span>
+      <span class="hero-caption">porcelanatos villagres · ambientes do catálogo</span>
+      <div class="hero-dots">
+        <button type="button" class="active" aria-label="Foto 1"></button>
+        <button type="button" aria-label="Foto 2"></button>
+        <button type="button" aria-label="Foto 3"></button>
+        <button type="button" aria-label="Foto 4"></button>
+      </div>
     </section>
 
     <!-- ================= FORMULÁRIO / ORÇAMENTO (2ª seção) ================= -->
@@ -980,6 +1018,35 @@
         });
       }, { threshold: .6 });
       counters.forEach(function (el) { ioCount.observe(el); });
+    })();
+
+    /* ===== Carrossel automático do hero (fotos Villagres) ===== */
+    (function () {
+      var slides = [].slice.call(document.querySelectorAll('.hero-slide'));
+      var dots = [].slice.call(document.querySelectorAll('.hero-dots button'));
+      if (slides.length < 2) return;
+
+      var idx = 0, timer = null, DELAY = 6000;
+
+      function go(n) {
+        slides[idx].classList.remove('active');
+        if (dots[idx]) dots[idx].classList.remove('active');
+        idx = (n + slides.length) % slides.length;
+        slides[idx].classList.add('active');
+        if (dots[idx]) dots[idx].classList.add('active');
+      }
+      function next() { go(idx + 1); }
+      function restart() {
+        if (timer) clearInterval(timer);
+        timer = setInterval(next, DELAY);
+      }
+
+      dots.forEach(function (d, i) {
+        d.addEventListener('click', function () { go(i); if (!reduceMotion) restart(); });
+      });
+
+      // Com preferência por menos movimento, o carrossel não avança sozinho
+      if (!reduceMotion) restart();
     })();
 
     /* ===== Casa em traço de projeto que se constrói com o scroll ===== */
