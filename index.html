@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RC Distribuidora de Pisos e Porcelanatos | Uberlândia-MG — Peça seu Orçamento</title>
+  <title>RC Distribuidora de Pisos e Porcelanatos em Uberlândia-MG | Peça seu Orçamento</title>
   <meta name="description" content="Pisos e porcelanatos das melhores marcas (Villagres, Majopar, Helena, Delta, Incefra) com preço de distribuidora em Uberlândia-MG. Peça seu orçamento pelo WhatsApp e receba atendimento especializado.">
 
   <!-- ============================================================
@@ -140,9 +140,16 @@
       .hero-nav .logo img{height:24px}
     }
 
-    /* ---------- Hero (navy dominante, como o dark da referência) ---------- */
-    .hero-grid{display:grid;gap:36px;align-items:center}
-    @media(min-width:920px){.hero-grid{grid-template-columns:1.04fr .96fr;gap:56px}}
+    /* ---------- Hero: foto preenchendo o topo, headline por cima ---------- */
+    .hero-panel{
+      background:
+        linear-gradient(180deg,rgba(3,19,79,.86) 0%,rgba(3,19,79,.5) 42%,rgba(3,19,79,.84) 100%),
+        url('assets/villagres-1.webp') center/cover no-repeat;
+      color:#fff;
+      display:flex;flex-direction:column;
+      min-height:min(88svh,840px);
+    }
+    .hero-copy{flex:1;display:flex;flex-direction:column;justify-content:center;max-width:660px;padding:12px 0 28px}
     .hero-kicker{
       display:flex;align-items:center;gap:10px;
       font-weight:500;font-size:.86rem;letter-spacing:.04em;
@@ -174,22 +181,12 @@
       .stat span{font-size:.68rem}
     }
 
-    .hero-photo{position:relative}
-    .hero-photo img{
-      width:100%;aspect-ratio:4/4.6;object-fit:cover;border-radius:var(--r-card);
-    }
-    @media(max-width:919px){.hero-photo img{aspect-ratio:16/9}}
-    .hero-photo .badge{
-      position:absolute;top:14px;left:14px;
-      background:var(--yellow);color:var(--navy);
-      font-weight:600;font-size:.8rem;text-transform:lowercase;letter-spacing:.02em;
-      padding:9px 16px;border-radius:999px;box-shadow:var(--shadow-soft);
-    }
-    .hero-photo figcaption{
-      position:absolute;bottom:12px;right:12px;
-      background:rgba(3,19,79,.72);color:#DBE3F5;font-size:.72rem;
+    .hero-caption{
+      position:absolute;bottom:14px;right:16px;
+      background:rgba(3,19,79,.6);color:#DBE3F5;font-size:.72rem;
       padding:5px 12px;border-radius:999px;
     }
+    @media(max-width:560px){.hero-caption{display:none}}
 
     /* ---------- Marquee (faixa amarela, eco da faixa "MATRIZ" da logo) ---------- */
     .marquee{
@@ -336,11 +333,11 @@
       font-size:clamp(1.75rem,3.5vw,2.6rem);font-weight:500;letter-spacing:-.015em;
       margin-bottom:14px;text-transform:lowercase;
     }
-    .form-copy h2 i{font-style:normal;font-weight:600;color:var(--yellow)}
-    .form-copy>p{color:var(--on-navy);font-weight:300;max-width:440px;margin-bottom:22px}
+    .form-copy h2 i{font-style:normal;font-weight:600;color:var(--blue)}
+    .form-copy>p{color:var(--ink-soft);max-width:440px;margin-bottom:22px}
     .form-card{
-      background:var(--card);color:var(--ink);border-radius:var(--r-card);
-      padding:28px;box-shadow:var(--shadow);
+      background:#fff;color:var(--ink);border-radius:var(--r-card);
+      border:1px solid var(--line);padding:28px;box-shadow:var(--shadow-soft);
     }
     .form-badge{
       display:inline-block;background:rgba(252,188,2,.18);color:#8A6700;
@@ -512,8 +509,8 @@
 
   <div class="page">
 
-    <!-- ================= HERO (navy) ================= -->
-    <section class="panel panel-navy">
+    <!-- ================= HERO (foto de fundo + headline) ================= -->
+    <section class="panel hero-panel">
       <nav class="hero-nav">
         <a href="#" class="logo"><img src="assets/logo-topo.png" alt="RC Distribuidora de Pisos e Porcelanatos"></a>
         <div class="hero-links">
@@ -531,232 +528,32 @@
         </div>
       </nav>
 
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <span class="hero-kicker">distribuidora de pisos · uberlândia-mg</span>
-          <h1 id="headline">o piso que você procura está aqui — com <em>preço de distribuidora</em><span class="dot">.</span></h1>
-          <p class="hero-sub">Villagres, Majopar, Helena, Delta, Incefra e outras marcas líderes, com atendimento de gente que entende de piso. Do orçamento à entrega, a gente cuida da sua obra ou reforma.</p>
-          <div class="hero-ctas">
-            <a href="#" class="btn btn-whatsapp js-wa">
-              <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .8-.1 1.2Z"/></svg>
-              chamar no whatsapp
-            </a>
-            <a href="#orcamento" class="btn btn-yellow">receber orçamento no meu whats</a>
-          </div>
-          <div class="hero-checks">
-            <span>orçamento sem compromisso</span>
-            <span>pronta entrega na região</span>
-          </div>
-          <div class="stats-row stagger">
-            <div class="stat"><b><span data-count="20">0</span><i>+</i></b><span>anos de história em Uberlândia</span></div>
-            <div class="stat"><b><span data-count="15">0</span><i>+</i></b><span>marcas líderes de mercado</span></div>
-            <div class="stat"><b>milhares</b><span>de obras atendidas na região</span></div>
-          </div>
+      <div class="hero-copy">
+        <span class="hero-kicker">distribuidora de pisos · uberlândia-mg</span>
+        <h1 id="headline">o piso que você procura, com <em>preço de distribuidora</em><span class="dot">.</span></h1>
+        <p class="hero-sub">Villagres, Majopar, Helena, Delta, Incefra e outras marcas líderes, com atendimento de gente que entende de piso. Do orçamento à entrega, a gente cuida da sua obra ou reforma.</p>
+        <div class="hero-ctas">
+          <a href="#" class="btn btn-whatsapp js-wa">
+            <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.1-1.7 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .8-.1 1.2Z"/></svg>
+            chamar no whatsapp
+          </a>
+          <a href="#orcamento" class="btn btn-yellow">receber orçamento no meu whats</a>
         </div>
-        <figure class="hero-photo">
-          <img class="img-reveal on" src="assets/villagres-1.webp" alt="Ambiente amplo com porcelanato de grande formato Villagres" fetchpriority="high">
-          <span class="badge">preço de distribuidora</span>
-          <figcaption>porcelanato villagres · ambiente do catálogo</figcaption>
-        </figure>
+        <div class="hero-checks">
+          <span>orçamento sem compromisso</span>
+          <span>pronta entrega na região</span>
+        </div>
       </div>
+      <div class="stats-row stagger">
+        <div class="stat"><b><span data-count="20">0</span><i>+</i></b><span>anos de história em Uberlândia</span></div>
+        <div class="stat"><b><span data-count="15">0</span><i>+</i></b><span>marcas líderes de mercado</span></div>
+        <div class="stat"><b>milhares</b><span>de obras atendidas na região</span></div>
+      </div>
+      <span class="hero-caption">porcelanato villagres · ambiente do catálogo</span>
     </section>
 
-    <!-- ================= MARQUEE ================= -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>porcelanatos · pisos cerâmicos · linha amadeirada · área externa · louças · metais · pronta entrega · uberlândia e região&nbsp;·&nbsp;</span>
-        <span>porcelanatos · pisos cerâmicos · linha amadeirada · área externa · louças · metais · pronta entrega · uberlândia e região&nbsp;·&nbsp;</span>
-      </div>
-    </div>
-
-    <!-- ================= POR QUE A RC ================= -->
-    <section class="panel reveal" id="porque">
-      <div class="sec-head">
-        <span class="micro">por que a rc</span>
-        <h2 class="section-title">preço de distribuidora, atendimento de <em>loja de bairro</em><span class="dot">.</span></h2>
-      </div>
-      <div class="why-grid">
-        <div class="why-left">
-          <p>Compramos em volume direto das fábricas e repassamos a economia para você — sem abrir mão do atendimento próximo, que ajuda na escolha certa para cada ambiente.</p>
-          <div class="why-mini stagger">
-            <div>marcas líderes reconhecidas pela qualidade</div>
-            <div>atendimento personalizado do início ao fim</div>
-            <div>parcelamento e condições para grandes volumes</div>
-          </div>
-        </div>
-        <div class="why-cards stagger">
-          <div class="why-card">
-            <img src="assets/villagres-1.webp" alt="">
-            <div><h3>preço direto de <i>distribuidora</i></h3><p>Compra em volume das fábricas, economia repassada pra você.</p></div>
-          </div>
-          <div class="why-card">
-            <img src="assets/helena-banho.jpg" alt="">
-            <div><h3>orientação <i>técnica</i></h3><p>Cálculo de metragem e escolha do piso certo para cada ambiente.</p></div>
-          </div>
-          <div class="why-card">
-            <img src="assets/helena-coliseu.jpg" alt="">
-            <div><h3>entrega em uberlândia <i>e região</i></h3><p>Logística própria para sua obra não parar por falta de material.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PRODUTOS ================= -->
-    <section class="panel reveal" id="produtos">
-      <div class="products-head">
-        <div class="sec-head" style="margin-bottom:20px">
-          <span class="micro">nossos produtos</span>
-          <h2 class="section-title">tudo para o piso da sua <em>obra ou reforma</em><span class="dot">.</span></h2>
-          <p class="section-sub">Variedade em tamanhos, acabamentos e faixas de preço — sempre com orientação técnica para você comprar a metragem certa.</p>
-        </div>
-        <a href="#" class="btn btn-navy js-wa">ver preços no whatsapp</a>
-      </div>
-      <div class="cards stagger">
-        <article class="card">
-          <div class="card-media"><img class="img-reveal" src="assets/villagres-2.webp" alt="Bancada e ambiente com porcelanato Villagres" loading="lazy"></div>
-          <div class="card-body">
-            <span class="card-index">p.01</span>
-            <h3>porcelanatos</h3>
-            <p>Polidos, acetinados e naturais, incluindo grandes placas.</p>
-            <a href="#" class="js-wa" data-produto="Porcelanato">ver preços no whatsapp →</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-media"><img class="img-reveal" src="assets/majopar-imperialle.jpg" alt="Varanda com piso cerâmico Majopar" style="object-position:center 70%" loading="lazy"></div>
-          <div class="card-body">
-            <span class="card-index">p.02</span>
-            <h3>pisos cerâmicos</h3>
-            <p>Ótimo custo-benefício para todos os ambientes, com pronta entrega.</p>
-            <a href="#" class="js-wa" data-produto="Piso cerâmico">ver preços no whatsapp →</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-media"><img class="img-reveal" src="assets/helena-banho.jpg" alt="Banheiro com revestimento de parede Helena" loading="lazy"></div>
-          <div class="card-body">
-            <span class="card-index">p.03</span>
-            <h3>revestimentos de parede</h3>
-            <p>Opções decorativas para cozinhas, banheiros e fachadas.</p>
-            <a href="#" class="js-wa" data-produto="Revestimento de parede">ver preços no whatsapp →</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-media"><img class="img-reveal" src="assets/helena-coliseu.jpg" alt="Área externa com piso antiderrapante" style="object-position:center 60%" loading="lazy"></div>
-          <div class="card-body">
-            <span class="card-index">p.04</span>
-            <h3>pisos para área externa</h3>
-            <p>Antiderrapantes e resistentes para garagens, quintais e lazer.</p>
-            <a href="#" class="js-wa" data-produto="Piso para área externa">ver preços no whatsapp →</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-media"><img class="img-reveal" src="assets/helena-teca.jpg" alt="Ambiente com porcelanato amadeirado Helena Teca" style="object-position:center 75%" loading="lazy"></div>
-          <div class="card-body">
-            <span class="card-index">p.05</span>
-            <h3>linha amadeirada</h3>
-            <p>O aconchego da madeira com a durabilidade do porcelanato.</p>
-            <a href="#" class="js-wa" data-produto="Porcelanato amadeirado">ver preços no whatsapp →</a>
-          </div>
-        </article>
-        <article class="card card-full">
-          <h3>obra completa? <i>preço especial.</i></h3>
-          <p>Condições diferenciadas para construtores e compras em grande volume.</p>
-          <a href="#" class="btn btn-yellow js-wa" data-produto="Materiais para obra completa">falar com especialista</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- ================= MARCAS ================= -->
-    <section class="panel reveal" id="marcas">
-      <div class="sec-head">
-        <span class="micro">marcas parceiras</span>
-        <h2 class="section-title">trabalhamos com quem é <em>referência</em><span class="dot">.</span></h2>
-        <p class="section-sub">Do piso à torneira, você encontra as marcas que os profissionais confiam — tudo em um só lugar.</p>
-      </div>
-      <div class="brand-grid stagger">
-        <div class="brand-card">
-          <h3>pisos e porcelanatos</h3>
-          <ul class="brand-list">
-            <li>Majopar</li><li>Villagres</li><li>Helena</li><li>Delta</li>
-            <li>Incefra</li><li>InOut</li><li>Duragres</li><li>Viva</li>
-            <li>Ceral</li><li>Strufaldi</li><li>Atlas</li><li>Morandin</li>
-          </ul>
-        </div>
-        <div class="brand-card navy">
-          <h3>louças</h3>
-          <ul class="brand-list">
-            <li>Celite</li><li>Roca</li>
-          </ul>
-        </div>
-        <div class="brand-card">
-          <h3>metais</h3>
-          <ul class="brand-list">
-            <li>Gold Flex</li><li>Celite</li><li>Incepa</li><li>Fani</li>
-          </ul>
-        </div>
-        <div class="brand-card navy">
-          <h3>condições facilitadas</h3>
-          <p>Parcelamento e condições especiais para grandes volumes. Conte pra gente o tamanho da sua obra.</p>
-          <a href="#" class="btn btn-yellow btn-sm js-wa">consultar condições no whats</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= COMO FUNCIONA ================= -->
-    <section class="panel reveal">
-      <div class="sec-head">
-        <span class="micro">como funciona</span>
-        <h2 class="section-title">três passos até o seu <em>piso novo</em><span class="dot">.</span></h2>
-      </div>
-      <div class="steps-grid stagger">
-        <div class="step">
-          <span class="step-num">01</span>
-          <h3>chame no whatsapp</h3>
-          <p>Mande a metragem e o tipo de ambiente — ou preencha o formulário que a gente te chama.</p>
-        </div>
-        <div class="step">
-          <span class="step-num">02</span>
-          <h3>receba orçamento e orientação</h3>
-          <p>Um especialista calcula a metragem certa e monta as melhores condições pra você.</p>
-        </div>
-        <div class="step">
-          <span class="step-num">03</span>
-          <h3>receba na sua obra</h3>
-          <p>Pronta entrega em Uberlândia e região — ou retire direto na loja, como preferir.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= DEPOIMENTOS ================= -->
-    <section class="panel reveal" id="depoimentos">
-      <div class="sec-head">
-        <span class="micro">quem comprou, recomenda</span>
-        <h2 class="section-title">o que dizem nossos <em>clientes</em><span class="dot">.</span></h2>
-      </div>
-      <!-- Avaliações reais publicadas no Google (perfil da empresa) -->
-      <div class="quotes stagger">
-        <article class="quote">
-          <div class="stars" aria-label="5 estrelas">★★★★★</div>
-          <p>"Uma experiência maravilhosa! Muito bem atendido, desde o primeiro contato via telefone. E presencialmente uma aula de cortesia, empatia e empenho (…) Loja linda, um verdadeiro show que nos remete a obra pronta! Simplesmente incomparável o Atendimento!"</p>
-          <footer><b>Emanuel de Paula</b><span>Avaliação no Google · Local Guide</span></footer>
-        </article>
-        <article class="quote">
-          <div class="stars" aria-label="5 estrelas">★★★★★</div>
-          <p>"Variedade excelente, compromisso com prazos. Welington me atende sempre, melhor pessoa e vendedor."</p>
-          <footer><b>José Junior</b><span>Avaliação no Google · Local Guide</span></footer>
-        </article>
-        <article class="quote">
-          <div class="stars" aria-label="5 estrelas">★★★★★</div>
-          <p>"Muito bem atendido, uma grande variedade de pisos e revestimentos, atendimento nota 10."</p>
-          <footer><b>Isaías de Souza Marinho Júnior</b><span>Avaliação no Google · Local Guide</span></footer>
-        </article>
-      </div>
-      <div class="quotes-cta">
-        <a class="btn btn-outline" href="https://www.google.com/search?q=rc+distribuidora+de+pisos#sv=CAESzQEKuQEStgEKd0FKaVQ0dExXWnN5TmtXbFFwWDI1VDFxV2d4OUNtb3VQWGJSN1NuYk1OODRobVp4Sm5kRnRHNjRzeS1wNDZwUG1sck9ZUkwxMVFJU3dySjZrRjQwaGJ4b2wtbUt1cVpCUGlSTXN3WmVSN1BYVUdyc1ZvdXJtdVUwEhdTbkpmYXVxTUJZX1o1T1VQOUpDRTRBcxoiQURzcjlmU2IyMnRiNXJ3SGtwdk9zVmdjNmM0SWo5ZnlsQRIEODA1MRoBMyoAMAA4AUAAGAAgzLn35AZKAhAB" target="_blank" rel="noopener">ver todas as avaliações no google</a>
-      </div>
-    </section>
-
-    <!-- ================= FORMULÁRIO / ORÇAMENTO (navy) ================= -->
-    <section class="panel panel-navy reveal" id="orcamento">
+    <!-- ================= FORMULÁRIO / ORÇAMENTO (2ª seção) ================= -->
+    <section class="panel reveal" id="orcamento">
       <div class="form-grid">
         <div class="form-copy">
           <span class="micro">orçamento sem compromisso</span>
@@ -805,6 +602,200 @@
       </div>
     </section>
 
+    <!-- ================= MARQUEE ================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>porcelanatos · pisos cerâmicos · linha amadeirada · área externa · louças · metais · pronta entrega · uberlândia e região&nbsp;·&nbsp;</span>
+        <span>porcelanatos · pisos cerâmicos · linha amadeirada · área externa · louças · metais · pronta entrega · uberlândia e região&nbsp;·&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- ================= POR QUE A RC ================= -->
+    <section class="panel reveal" id="porque">
+      <div class="sec-head">
+        <span class="micro">por que a rc</span>
+        <h2 class="section-title">preço de distribuidora, atendimento de <em>loja de bairro</em><span class="dot">.</span></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-left">
+          <p>Compramos em volume direto das fábricas e repassamos a economia para você, sem abrir mão do atendimento próximo que ajuda na escolha certa para cada ambiente.</p>
+          <div class="why-mini stagger">
+            <div>marcas líderes reconhecidas pela qualidade</div>
+            <div>atendimento personalizado do início ao fim</div>
+            <div>parcelamento e condições para grandes volumes</div>
+          </div>
+        </div>
+        <div class="why-cards stagger">
+          <div class="why-card">
+            <img src="assets/villagres-1.webp" alt="">
+            <div><h3>preço direto de <i>distribuidora</i></h3><p>Compra em volume das fábricas, economia repassada pra você.</p></div>
+          </div>
+          <div class="why-card">
+            <img src="assets/helena-banho.jpg" alt="">
+            <div><h3>orientação <i>técnica</i></h3><p>Cálculo de metragem e escolha do piso certo para cada ambiente.</p></div>
+          </div>
+          <div class="why-card">
+            <img src="assets/helena-coliseu.jpg" alt="">
+            <div><h3>entrega em uberlândia <i>e região</i></h3><p>Logística própria para sua obra não parar por falta de material.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRODUTOS ================= -->
+    <section class="panel reveal" id="produtos">
+      <div class="products-head">
+        <div class="sec-head" style="margin-bottom:20px">
+          <span class="micro">nossos produtos</span>
+          <h2 class="section-title">tudo para o piso da sua <em>obra ou reforma</em><span class="dot">.</span></h2>
+          <p class="section-sub">Variedade em tamanhos, acabamentos e faixas de preço, sempre com orientação técnica para você comprar a metragem certa.</p>
+        </div>
+        <a href="#" class="btn btn-navy js-wa">ver preços no whatsapp</a>
+      </div>
+      <div class="cards stagger">
+        <article class="card">
+          <div class="card-media"><img src="assets/villagres-2.webp" alt="Bancada e ambiente com porcelanato Villagres" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-index">p.01</span>
+            <h3>porcelanatos</h3>
+            <p>Polidos, acetinados e naturais, incluindo grandes placas.</p>
+            <a href="#" class="js-wa" data-produto="Porcelanato">ver preços no whatsapp →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/majopar-imperialle.jpg" alt="Varanda com piso cerâmico Majopar" style="object-position:center 70%" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-index">p.02</span>
+            <h3>pisos cerâmicos</h3>
+            <p>Ótimo custo-benefício para todos os ambientes, com pronta entrega.</p>
+            <a href="#" class="js-wa" data-produto="Piso cerâmico">ver preços no whatsapp →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/helena-banho.jpg" alt="Banheiro com revestimento de parede Helena" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-index">p.03</span>
+            <h3>revestimentos de parede</h3>
+            <p>Opções decorativas para cozinhas, banheiros e fachadas.</p>
+            <a href="#" class="js-wa" data-produto="Revestimento de parede">ver preços no whatsapp →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/helena-coliseu.jpg" alt="Área externa com piso antiderrapante" style="object-position:center 60%" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-index">p.04</span>
+            <h3>pisos para área externa</h3>
+            <p>Antiderrapantes e resistentes para garagens, quintais e lazer.</p>
+            <a href="#" class="js-wa" data-produto="Piso para área externa">ver preços no whatsapp →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/helena-teca.jpg" alt="Ambiente com porcelanato amadeirado Helena Teca" style="object-position:center 75%" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-index">p.05</span>
+            <h3>linha amadeirada</h3>
+            <p>O aconchego da madeira com a durabilidade do porcelanato.</p>
+            <a href="#" class="js-wa" data-produto="Porcelanato amadeirado">ver preços no whatsapp →</a>
+          </div>
+        </article>
+        <article class="card card-full">
+          <h3>obra completa? <i>preço especial.</i></h3>
+          <p>Condições diferenciadas para construtores e compras em grande volume.</p>
+          <a href="#" class="btn btn-yellow js-wa" data-produto="Materiais para obra completa">falar com especialista</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= MARCAS ================= -->
+    <section class="panel reveal" id="marcas">
+      <div class="sec-head">
+        <span class="micro">marcas parceiras</span>
+        <h2 class="section-title">trabalhamos com quem é <em>referência</em><span class="dot">.</span></h2>
+        <p class="section-sub">Do piso à torneira, você encontra em um só lugar as marcas que os profissionais confiam.</p>
+      </div>
+      <div class="brand-grid stagger">
+        <div class="brand-card">
+          <h3>pisos e porcelanatos</h3>
+          <ul class="brand-list">
+            <li>Majopar</li><li>Villagres</li><li>Helena</li><li>Delta</li>
+            <li>Incefra</li><li>InOut</li><li>Duragres</li><li>Viva</li>
+            <li>Ceral</li><li>Strufaldi</li><li>Atlas</li><li>Morandin</li>
+          </ul>
+        </div>
+        <div class="brand-card navy">
+          <h3>louças</h3>
+          <ul class="brand-list">
+            <li>Celite</li><li>Roca</li>
+          </ul>
+        </div>
+        <div class="brand-card">
+          <h3>metais</h3>
+          <ul class="brand-list">
+            <li>Gold Flex</li><li>Celite</li><li>Incepa</li><li>Fani</li>
+          </ul>
+        </div>
+        <div class="brand-card navy">
+          <h3>condições facilitadas</h3>
+          <p>Parcelamento e condições especiais para grandes volumes. Conte pra gente o tamanho da sua obra.</p>
+          <a href="#" class="btn btn-yellow btn-sm js-wa">consultar condições no whats</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COMO FUNCIONA ================= -->
+    <section class="panel reveal">
+      <div class="sec-head">
+        <span class="micro">como funciona</span>
+        <h2 class="section-title">três passos até o seu <em>piso novo</em><span class="dot">.</span></h2>
+      </div>
+      <div class="steps-grid stagger">
+        <div class="step">
+          <span class="step-num">01</span>
+          <h3>chame no whatsapp</h3>
+          <p>Mande a metragem e o tipo de ambiente ou, se preferir, preencha o formulário que a gente te chama.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <h3>receba orçamento e orientação</h3>
+          <p>Um especialista calcula a metragem certa e monta as melhores condições pra você.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <h3>receba na sua obra</h3>
+          <p>Pronta entrega em Uberlândia e região, ou retire direto na loja se preferir.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DEPOIMENTOS ================= -->
+    <section class="panel reveal" id="depoimentos">
+      <div class="sec-head">
+        <span class="micro">quem comprou, recomenda</span>
+        <h2 class="section-title">o que dizem nossos <em>clientes</em><span class="dot">.</span></h2>
+      </div>
+      <!-- Avaliações reais publicadas no Google (perfil da empresa) -->
+      <div class="quotes stagger">
+        <article class="quote">
+          <div class="stars" aria-label="5 estrelas">★★★★★</div>
+          <p>"Uma experiência maravilhosa! Muito bem atendido, desde o primeiro contato via telefone. E presencialmente uma aula de cortesia, empatia e empenho (…) Loja linda, um verdadeiro show que nos remete a obra pronta! Simplesmente incomparável o Atendimento!"</p>
+          <footer><b>Emanuel de Paula</b><span>Avaliação no Google · Local Guide</span></footer>
+        </article>
+        <article class="quote">
+          <div class="stars" aria-label="5 estrelas">★★★★★</div>
+          <p>"Variedade excelente, compromisso com prazos. Welington me atende sempre, melhor pessoa e vendedor."</p>
+          <footer><b>José Junior</b><span>Avaliação no Google · Local Guide</span></footer>
+        </article>
+        <article class="quote">
+          <div class="stars" aria-label="5 estrelas">★★★★★</div>
+          <p>"Muito bem atendido, uma grande variedade de pisos e revestimentos, atendimento nota 10."</p>
+          <footer><b>Isaías de Souza Marinho Júnior</b><span>Avaliação no Google · Local Guide</span></footer>
+        </article>
+      </div>
+      <div class="quotes-cta">
+        <a class="btn btn-outline" href="https://www.google.com/search?q=rc+distribuidora+de+pisos#sv=CAESzQEKuQEStgEKd0FKaVQ0dExXWnN5TmtXbFFwWDI1VDFxV2d4OUNtb3VQWGJSN1NuYk1OODRobVp4Sm5kRnRHNjRzeS1wNDZwUG1sck9ZUkwxMVFJU3dySjZrRjQwaGJ4b2wtbUt1cVpCUGlSTXN3WmVSN1BYVUdyc1ZvdXJtdVUwEhdTbkpmYXVxTUJZX1o1T1VQOUpDRTRBcxoiQURzcjlmU2IyMnRiNXJ3SGtwdk9zVmdjNmM0SWo5ZnlsQRIEODA1MRoBMyoAMAA4AUAAGAAgzLn35AZKAhAB" target="_blank" rel="noopener">ver todas as avaliações no google</a>
+      </div>
+    </section>
+
     <!-- ================= VISITE NOSSA LOJA ================= -->
     <section class="panel reveal" id="loja">
       <div class="sec-head">
@@ -815,7 +806,7 @@
       <div class="visit-grid">
         <div>
           <ul class="visit-list stagger">
-            <li><span class="ico">📍</span><div><b>Endereço</b><p>Rua João Thomaz de Rezende, 560 — Osvaldo Rezende, Uberlândia/MG</p></div></li>
+            <li><span class="ico">📍</span><div><b>Endereço</b><p>Rua João Thomaz de Rezende, 560, Osvaldo Rezende, Uberlândia/MG</p></div></li>
             <li><span class="ico">📞</span><div><b>Telefone fixo</b><a href="tel:+553432119950">(34) 3211-9950</a></div></li>
             <li><span class="ico">💬</span><div><b>WhatsApp</b><a href="#" class="js-wa">(34) 99887-1579</a></div></li>
             <li><span class="ico">✉️</span><div><b>E-mail</b><a href="mailto:contato@rcdistribuidoradepisos.com.br">contato@rcdistribuidoradepisos.com.br</a></div></li>
@@ -831,7 +822,7 @@
 
     <!-- ================= FOOTER ================= -->
     <footer class="panel panel-navy footer-panel">
-      <span>© <span id="ano"></span> RC Distribuidora de Pisos e Porcelanatos — Uberlândia/MG</span>
+      <span>© <span id="ano"></span> RC Distribuidora de Pisos e Porcelanatos · Uberlândia/MG</span>
       <a href="#orcamento">pedir orçamento</a>
     </footer>
 
