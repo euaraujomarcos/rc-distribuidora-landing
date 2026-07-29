@@ -38,6 +38,17 @@ Landing page de captura de leads em arquivo único (`index.html`), sem dependên
 
 Qualquer host estático funciona: Netlify, Vercel, Cloudflare Pages ou o próprio provedor atual do domínio. Para campanhas, publicar em um caminho tipo `rcdistribuidoradepisos.com.br/orcamento` ou subdomínio `promo.rcdistribuidoradepisos.com.br`.
 
+## Design system v2 — "Editorial de arquitetura" (29/07/2026)
+
+Redesign após feedback do cliente (referência dele: https://carolvilarinhodev.github.io/teste/). O design system se inspira em catálogos de porcelanato de alto padrão e sites de estúdios de arquitetura:
+
+- **Tipografia**: Fraunces (serifada expressiva, títulos — com itálicos de destaque) + Manrope (UI/corpo).
+- **Neutros de galeria**: fundo plaster `#F4F2EC`, hairlines `#E3DED2` — as cores da marca entram como acento, não como fundo de tudo.
+- **Dispositivos editoriais**: seções numeradas (01–07), hairlines separando conteúdos, micro-labels em caixa alta com tracking largo, números serifados nas estatísticas, legendas nas fotos.
+- **Mantido da versão do cliente**: painéis arredondados sobre fundo colorido, a casinha SVG que se constrói com o scroll (recolorida para tom blueprint/stone), estrutura de seções, dados atualizados (endereço, marcas em 3 categorias, 15+ marcas).
+- **Mantido da nossa v1** (que a versão do cliente havia perdido): message match `?h=`/`?produto=`, `PROMO_TEXT`, `trackLead()` ativo, máscara de telefone, validação do formulário, mensagens de WhatsApp específicas por produto (`data-produto`), barra fixa mobile.
+- **Mobile first**: headline visível antes da foto no hero, carrosséis scroll-snap (produtos e depoimentos), CTAs full-width ≥54px, barra fixa de WhatsApp com `safe-area-inset`.
+
 ## Identidade visual
 
 Cores extraídas pixel a pixel da logo oficial (`Arquivos/Logo RC Distribuídora Matriz.jpg`), definidas como variáveis CSS no topo do `index.html`:
@@ -52,10 +63,12 @@ Os botões de WhatsApp permanecem verdes (`#1fa855`) de propósito — verde é 
 
 ## Dados da empresa (extraídos do site atual em 21/07/2026)
 
-- Av. Prof. Minervina Cândida Oliveira, 135 — Osvaldo Rezende, Uberlândia/MG, CEP 38400-381
+- Rua João Thomaz de Rezende, 560 — Osvaldo Rezende, Uberlândia/MG (endereço confirmado pelo cliente em 29/07/2026; o site antigo listava outro)
 - Tel: (34) 3211-9950 · WhatsApp: (34) 99887-1579
 - contato@rcdistribuidoradepisos.com.br · @rcdistribuidoramatriz
 
-## Marcas parceiras (informadas pelo cliente em 21/07/2026)
+## Marcas parceiras (atualizadas pelo cliente em 29/07/2026)
 
-Villagres · Helena Porcelanato · Delta Porcelanatos · Studio Morandin · Strufaldi · Inout Premium · Roca · Majopar · Vila Art
+- **Pisos e porcelanatos**: Majopar · Villagres · Helena · Delta · Incefra · InOut · Duragres · Viva · Ceral · Strufaldi · Atlas · Morandin
+- **Louças**: Celite · Roca
+- **Metais**: Gold Flex · Celite · Incepa · Fani
