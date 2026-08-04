@@ -9,9 +9,20 @@
   <!-- ============================================================
        PIXELS DE RASTREAMENTO — substituir pelos IDs reais
        ============================================================ -->
-  <!-- Meta Pixel: cole aqui o código do pixel (Eventos: PageView automático;
-       "Lead" é disparado no clique do WhatsApp e no envio do formulário — ver função trackLead()) -->
-  <!-- <script> ...código do Meta Pixel... </script> -->
+  <!-- Meta Pixel (browser). O evento "Lead" é disparado nos cliques de WhatsApp
+       e no envio do formulário, com deduplicação via event_id contra a CAPI
+       (endpoint capi.php no servidor) — ver função trackLead(). -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1717461113066636');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=1717461113066636&ev=PageView&noscript=1"></noscript>
 
   <!-- Google Tag (GA4 / Google Ads): cole aqui o snippet gtag.js -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script> -->
@@ -885,12 +896,20 @@
       'reforma':     'Reforme com as melhores marcas <em>pagando preço de distribuidora</em><span class="dot">.</span>'
     };
 
-    // Dispara evento de conversão nos pixels instalados (Meta / Google)
+    // Dispara o evento de conversão no navegador (Meta Pixel / Google) e na
+    // Conversions API via capi.php, com o mesmo event_id para deduplicação.
     function trackLead(origem) {
+      var eventId = 'lead-' + Date.now() + '-' + Math.floor(Math.random() * 1e6);
       try {
-        if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: origem });
+        if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: origem }, { eventID: eventId });
         if (typeof gtag === 'function') gtag('event', 'generate_lead', { origem: origem });
-      } catch (e) { /* pixels não instalados */ }
+      } catch (e) { /* pixel não carregou */ }
+      try {
+        var payload = JSON.stringify({ event_name: 'Lead', event_id: eventId, url: location.href, custom: origem });
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon('capi.php', new Blob([payload], { type: 'application/json' }));
+        }
+      } catch (e) { /* CAPI indisponível (ex.: ambiente de aprovação) */ }
     }
 
     function waUrl(msg) {

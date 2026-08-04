@@ -1,0 +1,3 @@
+# Contém o token da Conversions API — nunca subir para o repositório público.
+# O deploy deste arquivo é feito apenas por FTP, direto para o servidor.
+capi.php
