@@ -24,8 +24,15 @@
   <noscript><img height="1" width="1" style="display:none" alt=""
     src="https://www.facebook.com/tr?id=1717461113066636&ev=PageView&noscript=1"></noscript>
 
-  <!-- Google Tag (GA4 / Google Ads): cole aqui o snippet gtag.js -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script> -->
+  <!-- Google tag (gtag.js) — Google Ads. A conversão de Lead é disparada em
+       trackLead() usando GOOGLE_ADS_LABEL (configurado no script no fim da página). -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18188649439"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18188649439');
+  </script>
 
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -885,6 +892,11 @@
     // Use apenas ofertas REAIS confirmadas com a loja.
     var PROMO_TEXT = '';
 
+    // Conversão do Google Ads: cole aqui o rótulo da ação de conversão
+    // (a parte após a barra no send_to do snippet de evento, ex.: 'AbC-dEfGhIjK').
+    var GOOGLE_ADS_ID = 'AW-18188649439';
+    var GOOGLE_ADS_LABEL = '';
+
     // ===== Message match (Oli Gardner) =====
     // ?h=porcelanato | ?h=amadeirado | ?h=ceramico | ?h=obra | ?h=reforma
     // ?produto=Porcelanato pré-seleciona o campo do formulário.
@@ -902,7 +914,12 @@
       var eventId = 'lead-' + Date.now() + '-' + Math.floor(Math.random() * 1e6);
       try {
         if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: origem }, { eventID: eventId });
-        if (typeof gtag === 'function') gtag('event', 'generate_lead', { origem: origem });
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { origem: origem });
+          if (GOOGLE_ADS_LABEL) {
+            gtag('event', 'conversion', { send_to: GOOGLE_ADS_ID + '/' + GOOGLE_ADS_LABEL });
+          }
+        }
       } catch (e) { /* pixel não carregou */ }
       try {
         var payload = JSON.stringify({ event_name: 'Lead', event_id: eventId, url: location.href, custom: origem });
