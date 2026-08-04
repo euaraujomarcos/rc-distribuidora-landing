@@ -69,6 +69,6 @@ Os botões de WhatsApp permanecem verdes (`#1fa855`) de propósito — verde é 
 
 ## Marcas parceiras (atualizadas pelo cliente em 29/07/2026)
 
-- **Pisos e porcelanatos**: Majopar · Villagres · Helena · Delta · Incefra · InOut · Duragres · Viva · Ceral · Strufaldi · Atlas · Morandin
+- **Pisos e porcelanatos**: Majopar · Villagres · Helena · Delta · Duragres · Viva · Ceral · Strufaldi · Atlas · Morandin
 - **Louças**: Celite · Roca
 - **Metais**: Gold Flex · Celite · Incepa · Fani
